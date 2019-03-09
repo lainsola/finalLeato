@@ -334,6 +334,12 @@ export const constantRouterMap = [
         component: () => import('@/views/pro/order/setting'),
         meta: {title: '厂商管理', icon: 'order-setting'}
       },
+      {
+        path: 'deliverOrderList',
+        name: 'deliverOrderList',
+        component: () => import('@/views/pro/order/deliverOrderList'),
+        meta: {title: '经销商详情', icon: 'order-setting'}
+      },
 
     ]
   },
