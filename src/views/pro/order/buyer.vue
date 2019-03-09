@@ -1,10 +1,9 @@
-
-<template> 
+<template> 
   <div class="app-container">
     <el-card class="filter-container" shadow="never">
       <div>
         <i class="el-icon-search"></i>
-        <span>筛选搜索</span>
+        <span>酷酷酷酷酷酷</span>
         <el-button
           style="float:right"
           type="primary"
@@ -22,7 +21,7 @@
       <div style="margin-top: 15px">
         <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
           <el-form-item label="输入搜索：">
-            <el-input v-model="listQuery.orderSn" class="input-width" placeholder="订单编号"></el-input>
+            <el-input v-model="listQuery.orderSn" class="input-width" placeholder="订单号"></el-input>
           </el-form-item>
           <el-form-item label="收货人：">
             <el-input v-model="listQuery.receiverKeyword" class="input-width" placeholder="收货人姓名/手机号码"></el-input>
@@ -69,6 +68,7 @@
     <el-card class="operate-container" shadow="never">
       <i class="el-icon-tickets"></i>
       <span>数据列表</span>
+
     </el-card>
     <div class="table-container">
       <el-table ref="orderTable"
@@ -77,36 +77,36 @@
                 @selection-change="handleSelectionChange"
                 v-loading="listLoading" border>
         <el-table-column type="selection" width="60" align="center"></el-table-column>
-        <el-table-column label="编号" width="80" align="center">
+        <el-table-column label="头像" width="80" align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="订单编号" width="180" align="center">
+        <el-table-column label="编号" width="180" align="center">
           <template slot-scope="scope">{{scope.row.orderSn}}</template>
         </el-table-column>
-        <el-table-column label="提交时间" width="180" align="center">
+        <el-table-column label="店名" width="180" align="center">
           <template slot-scope="scope">{{scope.row.createTime | formatCreateTime}}</template>
         </el-table-column>
-        <el-table-column label="用户账号" align="center">
+        <el-table-column label="掌柜名" align="center">
           <template slot-scope="scope">{{scope.row.memberUsername}}</template>
         </el-table-column>
-        <el-table-column label="订单金额" width="120" align="center">
+        <el-table-column label="电话" width="120" align="center">
           <template slot-scope="scope">￥{{scope.row.totalAmount}}</template>
         </el-table-column>
-        <el-table-column label="支付方式" width="120" align="center">
+        <el-table-column label="注册时间" width="120" align="center">
           <template slot-scope="scope">{{scope.row.payType | formatPayType}}</template>
         </el-table-column>
-        <el-table-column label="订单来源" width="120" align="center">
+        <el-table-column label="好评率" width="120" align="center">
           <template slot-scope="scope">{{scope.row.sourceType | formatSourceType}}</template>
         </el-table-column>
-        <el-table-column label="订单状态" width="120" align="center">
+        <el-table-column label="粉丝数" width="120" align="center">
           <template slot-scope="scope">{{scope.row.status | formatStatus}}</template>
         </el-table-column>
         <el-table-column label="操作" width="200" align="center">
           <template slot-scope="scope">
             <el-button
               size="mini"
-              @click="handleViewOrder(scope.$index, scope.row)"
-            >查看订单</el-button>
+              @click="handleViewOrder()"
+            >查看详情</el-button>
             <el-button
               size="mini"
               @click="handleCloseOrder(scope.$index, scope.row)"
@@ -123,7 +123,7 @@
               size="mini"
               type="danger"
               @click="handleDeleteOrder(scope.$index, scope.row)"
-              v-show="scope.row.status===4">删除订单</el-button>
+              v-show="scope.row.status===4">删除用户</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -319,8 +319,8 @@
       handleSelectionChange(val){
         this.multipleSelection = val;
       },
-      handleViewOrder(index, row){
-        this.$router.push({path:'/oms/orderDetail',query:{id:row.id}})
+      handleViewOrder(){
+        this.$router.push({path:'home/index'})
       },
       handleCloseOrder(index, row){
         this.closeOrder.dialogVisible=true;
@@ -460,6 +460,5 @@
     width: 203px;
   }
 </style>
-
 
 

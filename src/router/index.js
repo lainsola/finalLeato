@@ -315,11 +315,20 @@ export const constantRouterMap = [
         meta: {title: '经销商管理', icon: 'product-list'}
       },
       {
-        path: 'orderDetail',
-        name: 'orderDetail',
+        path: 'distributorDetail',
+        name: 'distributorDetail',
         component: () => import('@/views/pro/order/distributorDetail'),
-        meta: {title: '经销商详情'},
+        meta: {title: '经销商详情' },
         hidden:true
+      },
+
+
+
+      {
+        path: 'buyer',
+        name: 'buyer',
+        component: () => import('@/views/pro/order/buyer'),
+        meta: {title: '厂商管理', icon: 'order-setting'}
       },
       {
         path: 'deliverOrderList',
@@ -328,18 +337,7 @@ export const constantRouterMap = [
         meta: {title: '发货列表'},
         hidden:true
       },
-      {
-        path: 'orderSetting',
-        name: 'orderSetting',
-        component: () => import('@/views/pro/order/setting'),
-        meta: {title: '厂商管理', icon: 'order-setting'}
-      },
-      {
-        path: 'deliverOrderList',
-        name: 'deliverOrderList',
-        component: () => import('@/views/pro/order/deliverOrderList'),
-        meta: {title: '经销商详情', icon: 'order-setting'}
-      },
+
 
     ]
   },
