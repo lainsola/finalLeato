@@ -306,22 +306,35 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/pro/order',
     name: 'pro',
-    meta: {title: '经销商', icon: 'order'},
+    meta: {title: '用户', icon: 'order'},
     children: [
       {
         path: 'order',
         name: 'order',
         component: () => import('@/views/pro/order/index'),
-        meta: {title: '经销商列表', icon: 'product-list'}
+        meta: {title: '经销商管理', icon: 'product-list'}
       },
       {
         path: 'orderDetail',
         name: 'orderDetail',
-        component: () => import('@/views/pro/order/orderDetail'),
+        component: () => import('@/views/pro/order/distributorDetail'),
         meta: {title: '经销商详情'},
         hidden:true
       },
-      
+      {
+        path: 'deliverOrderList',
+        name: 'deliverOrderList',
+        component: () => import('@/views/pro/order/deliverOrderList'),
+        meta: {title: '发货列表'},
+        hidden:true
+      },
+      {
+        path: 'orderSetting',
+        name: 'orderSetting',
+        component: () => import('@/views/pro/order/setting'),
+        meta: {title: '厂商管理', icon: 'order-setting'}
+      },
+
     ]
   },
   {path: '*', redirect: '/404', hidden: true}
