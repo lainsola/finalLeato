@@ -68,7 +68,7 @@
     <el-card class="operate-container" shadow="never">
       <i class="el-icon-tickets"></i>
       <span>数据列表</span>
-      
+
     </el-card>
     <div class="table-container">
       <el-table ref="orderTable"
@@ -105,7 +105,8 @@
           <template slot-scope="scope">
             <el-button
               size="mini"
-              @click="handleViewOrder()">查看详情</el-button>
+              @click="handleViewOrder()"
+            >查看详情</el-button>
             <el-button
               size="mini"
               @click="handleCloseOrder(scope.$index, scope.row)"
@@ -319,7 +320,7 @@
         this.multipleSelection = val;
       },
       handleViewOrder(){
-         this.$router.push({path:'/pro/distributorDetail'})
+        this.$router.push({path:'home/index'})
       },
       handleCloseOrder(index, row){
         this.closeOrder.dialogVisible=true;

@@ -195,6 +195,60 @@ export const constantRouterMap = [
     ]
   },
   {
+    path: '/issue',
+    component: Layout,
+    redirect: '/issue/order',
+    name: 'issue',
+    meta: {title: '纠纷管理', icon: 'order'},
+    children: [
+      {
+        path: 'order',
+        name: 'order',
+        component: () => import('@/views/issue/order/index'),
+        meta: {title: '订单列表', icon: 'product-list'}
+      },
+      {
+        path: 'orderDetail',
+        name: 'orderDetail',
+        component: () => import('@/views/issue/order/orderDetail'),
+        meta: {title: '订单详情'},
+        hidden:true
+      },
+      {
+        path: 'deliverOrderList',
+        name: 'deliverOrderList',
+        component: () => import('@/views/issue/order/deliverOrderList'),
+        meta: {title: '发货列表'},
+        hidden:true
+      },
+      {
+        path: 'orderSetting',
+        name: 'orderSetting',
+        component: () => import('@/views/issue/order/setting'),
+        meta: {title: '订单设置', icon: 'order-setting'}
+      },
+      {
+        path: 'returnApply',
+        name: 'returnApply',
+        component: () => import('@/views/issue/apply/index'),
+        meta: {title: '退货申请处理', icon: 'order-return'}
+      },
+      {
+        path: 'returnReason',
+        name: 'returnReason',
+        component: () => import('@/views/issue/apply/reason'),
+        meta: {title: '退货原因设置', icon: 'order-return-reason'}
+      },
+      {
+        path: 'returnApplyDetail',
+        name: 'returnApplyDetail',
+        component: () => import('@/views/issue/apply/applyDetail'),
+        meta: {title: '退货原因详情'},
+        hidden:true
+      }
+    ]
+  },
+  {
     path:'/sms',
     component: Layout,
     redirect: '/sms/coupon',
@@ -315,11 +369,20 @@ export const constantRouterMap = [
         meta: {title: '经销商管理', icon: 'product-list'}
       },
       {
-        path: 'orderDetail',
-        name: 'orderDetail',
+        path: 'distributorDetail',
+        name: 'distributorDetail',
         component: () => import('@/views/pro/order/distributorDetail'),
-        meta: {title: '经销商详情'},
+        meta: {title: '经销商详情' },
         hidden:true
+      },
+
+
+
+      {
+        path: 'buyer',
+        name: 'buyer',
+        component: () => import('@/views/pro/order/buyer'),
+        meta: {title: '厂商管理', icon: 'order-setting'}
       },
       {
         path: 'deliverOrderList',
@@ -328,12 +391,7 @@ export const constantRouterMap = [
         meta: {title: '发货列表'},
         hidden:true
       },
-      {
-        path: 'orderSetting',
-        name: 'orderSetting',
-        component: () => import('@/views/pro/order/setting'),
-        meta: {title: '厂商管理', icon: 'order-setting'}
-      },
+
 
     ]
   },

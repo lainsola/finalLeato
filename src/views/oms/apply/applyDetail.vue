@@ -57,6 +57,7 @@
             {{orderReturnApply.orderSn}}
             <el-button type="text" size="small" @click="handleViewOrder">查看</el-button>
           </el-col>
+
         </el-row>
         <el-row>
           <el-col class="form-border form-left-bg font-small" :span="6">申请时间</el-col>
