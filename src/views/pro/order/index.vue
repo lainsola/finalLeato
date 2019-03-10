@@ -105,9 +105,7 @@
           <template slot-scope="scope">
             <el-button
               size="mini"
-              @click="handleViewOrder(scope.$index, scope.row
-              )"
-            >查看详情</el-button>
+              @click="handleViewOrder()">查看详情</el-button>
             <el-button
               size="mini"
               @click="handleCloseOrder(scope.$index, scope.row)"
@@ -321,7 +319,7 @@
         this.multipleSelection = val;
       },
       handleViewOrder(){
-         this.$router.push({path:'/pro/order/orderDetail',query:{id:row.id}})
+         this.$router.push({path:'/pro/distributorDetail'})
       },
       handleCloseOrder(index, row){
         this.closeOrder.dialogVisible=true;
