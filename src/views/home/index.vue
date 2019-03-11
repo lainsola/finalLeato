@@ -1,365 +1,416 @@
 <template>
   <div class="app-container">
-    
-    <div class="total-layout">
-      <el-row :gutter="20">
-        <el-col :span="6">
-          <div class="total-frame">
-            <svg-icon icon-class="order" class="total-icon">
-            </svg-icon>
-            <div class="total-title">今日订单总数</div>
-            <div class="total-value">200</div>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div class="total-frame">
-            <svg-icon icon-class="total-today" class="total-icon">
-            </svg-icon>
-            <div class="total-title">今日销售总额</div>
-            <div class="total-value">￥5000.00</div>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div class="total-frame">
-            <svg-icon icon-class="total-yesterday" class="total-icon">
-            </svg-icon>
-            <div class="total-title">昨日销售总额</div>
-            <div class="total-value">￥5000.00</div>
-          </div>
-        </el-col>
-        <el-col :span="6">
-          <div class="total-frame">
-            <svg-icon icon-class="total-week" class="total-icon">
-            </svg-icon>
-            <div class="total-title">近7天销售总额</div>
-            <div class="total-value">￥50000.00</div>
-          </div>
-        </el-col>
-      </el-row>
-    </div>
-    <div class="un-handle-layout">
-      <div class="layout-title">待处理事务</div>
-      <div class="un-handle-content">
-        <el-row :gutter="20">
-          <el-col :span="8">
-            <div class="un-handle-item">
-              <span class="font-medium">待付款订单</span>
-              <span style="float: right" class="color-danger">(10)</span>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div class="un-handle-item">
-              <span class="font-medium">已完成订单</span>
-              <span style="float: right" class="color-danger">(10)</span>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div class="un-handle-item">
-              <span class="font-medium">待确认收货订单</span>
-              <span style="float: right" class="color-danger">(10)</span>
-            </div>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="8">
-            <div class="un-handle-item">
-              <span class="font-medium">待发货订单</span>
-              <span style="float: right" class="color-danger">(10)</span>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div class="un-handle-item">
-              <span class="font-medium">新缺货登记</span>
-              <span style="float: right" class="color-danger">(10)</span>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div class="un-handle-item">
-              <span class="font-medium">待处理退款申请</span>
-              <span style="float: right" class="color-danger">(10)</span>
-            </div>
-          </el-col>
-        </el-row>
-        <el-row :gutter="20">
-          <el-col :span="8">
-            <div class="un-handle-item">
-              <span class="font-medium">已发货订单</span>
-              <span style="float: right" class="color-danger">(10)</span>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div class="un-handle-item">
-              <span class="font-medium">待处理退货订单</span>
-              <span style="float: right" class="color-danger">(10)</span>
-            </div>
-          </el-col>
-          <el-col :span="8">
-            <div class="un-handle-item">
-              <span class="font-medium">广告位即将到期</span>
-              <span style="float: right" class="color-danger">(10)</span>
-            </div>
-          </el-col>
-        </el-row>
-      </div>
-    </div>
-    <div class="overview-layout">
-      <el-row :gutter="20">
-        <el-col :span="12">
-          <div class="out-border">
-            <div class="layout-title">商品总览</div>
-            <div style="padding: 40px">
-              <el-row>
-                <el-col :span="6" class="color-danger overview-item-value">100</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">400</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">50</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">500</el-col>
+
+        <div class="total-layout">
+              <el-row :gutter="20">
+                        
+                    <el-col :span="6">
+
+                      <div class="total-frame">
+                        <ul>
+                          <li class="total-title">累计用户量</li>
+                          <li class="total-time">2018-01-01<span>~</span>2019-03-11|上线至今</li>
+                          <li class="total-heji">合计</li>
+                          <li><span class="total-num-size">18.43</span>万人</li>
+                          <li>&nbsp</li>
+                          
+                        </ul>
+                      </div>                       
+                    </el-col>
+
+                    <el-col :span="6">
+
+                      <div class="total-frame">
+                        <ul>
+                          <li class="total-title">昨日|新增用户数</li>
+                          <li class="total-time">2019-03-10</li>
+                          <li class="total-heji">3-11（日）</li>
+                          <li><span class="total-num-size">627</span>人</li>
+                          <li>
+                            <span class="color-success" style="font-size: 14px">+0.97%</span>
+                            <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+                          </li>
+                        </ul>
+                      </div>                       
+                    </el-col>
+
+                    <el-col :span="6">
+
+                      <div class="total-frame">
+                        <ul>
+                          <li class="total-title">昨日|访问人数</li>
+                          <li class="total-time">2019-03-11<span>~</span>2019-03-11|昨日</li>
+                          <li class="total-heji">3.11（日）</li>
+                          <li><span class="total-num-size">4,415</span>人</li>
+                          <li>
+                            <span class="color-success" style="font-size: 14px">+4.23%</span>
+                            <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+                          </li>
+                        </ul>
+                      </div>                 
+                    </el-col>
+
+                    <el-col :span="6">
+
+                      <div class="total-frame">
+                        <ul>
+                          <li class="total-title"><a href="#">昨日|访问次数</a></li>
+                          <li class="total-time">2019-03-11<span>~</span>2019-03-11|昨日</li>
+                          <li class="total-heji">3.11（日）</li>
+                          <li><span class="total-num-size">7178</span>次</li>
+                          <li>
+                            <span class="color-success" style="font-size: 14px">+3.62%</span>
+                            <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+                          </li>
+                        </ul>
+                      </div>                      
+                    </el-col>
+
+               
               </el-row>
-              <el-row class="font-medium">
-                <el-col :span="6" class="overview-item-title">已下架</el-col>
-                <el-col :span="6" class="overview-item-title">已上架</el-col>
-                <el-col :span="6" class="overview-item-title">库存紧张</el-col>
-                <el-col :span="6" class="overview-item-title">全部商品</el-col>
+        </div>
+
+
+
+        <div class="click-web-layout">
+          <div class="layout-title"><a href="#">每日访问趋势</a>
+          <div class="total-time">2018-01-01<span>~</span>2019-03-10|上线至今</div></div>
+          
+          <div class="click-web--content">
+
+            <el-row>
+            <el-col :span="4">
+              <div style="padding: 20px">
+                <div>
+                  <div style="color: #909399;font-size: 14px">3-11（日）</div>
+                  <div style="color: #606266;font-size: 24px;padding: 10px 0">44516 <span style="color: #909399;font-size: 14px">人/次</span></div>
+                  <div>
+                    <span class="color-success" style="font-size: 14px">+10%</span>
+                    <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+                  </div>
+                </div>
+                <div style="margin-top: 20px;">
+                  <div style="color: #909399;font-size: 14px">订单总数</div>
+                  <div style="color: #606266;font-size: 24px;padding: 10px 0">17691</div>
+                  <div>
+                    <span class="color-danger" style="font-size: 14px">-10%</span>
+                    <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+                  </div>
+                </div>
+                <div style="margin-top: 20px;">
+                  <div style="color: #909399;font-size: 14px">销售总额</div>
+                  <div style="color: #606266;font-size: 24px;padding: 10px 0">444万</div>
+                  <div>
+                    <span class="color-success" style="font-size: 14px">+10%</span>
+                    <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+                  </div>
+                </div>
+                <div style="margin-top: 20px;">
+                  <div style="color: #909399;font-size: 14px">本周销售总额</div>
+                  <div style="color: #606266;font-size: 24px;padding: 10px 0">3509万</div>
+                  <div>
+                    <span class="color-danger" style="font-size: 14px">-10%</span>
+                    <span style="color: #C0C4CC;font-size: 14px">同比上周</span>
+                  </div>
+                </div>
+              </div>
+            </el-col>
+            <el-col :span="20">
+              <div style="padding: 10px;border-left:1px solid #DCDFE6">
+                <el-date-picker
+                  style="float: right;z-index: 1"
+                  size="small"
+                  v-model="orderCountDate"
+                  type="daterange"
+                  align="right"
+                  unlink-panels
+                  range-separator="至"
+                  start-placeholder="开始日期"
+                  end-placeholder="结束日期"
+                  @change="handleDateChange"
+                  :picker-options="pickerOptions">
+                </el-date-picker>
+                <div>
+                  
+                    <ve-line :data="lineChartData" :settings="lineChartSettings" :mark-point="lineChartMarkPoint"></ve-line>
+        
+                </div>
+
+                
+              </div>
+            </el-col>
+          </el-row>
+           
+          </div>
+        </div>
+
+        
+       <div class="total-layout">
+            <el-row :gutter="20">
+                      
+                <el-col :span="6">
+                  <div class="total-frame">
+                    <ul>
+                      <li class="total-title">昨日|人均使用次数</li>
+                      <li class="total-time">2019-03-10</li>
+                      
+                      <li><span class="total-num-size">1.17</span>次</li>
+                      <li>
+                            <span class="color-danger" style="font-size: 14px">-0.85%</span>
+                            <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+                      </li>
+                    </ul>
+                  </div>
+                </el-col>
+
+                <el-col :span="6">
+                  <div class="total-frame">
+                    <ul>
+                      <li class="total-title">昨日|人均使用时长</li>
+                      <li class="total-time">2019-03-10</li>    
+                      <li><span class="total-num-size">5,943</span>秒</li>
+                      <li>
+                            <span class="color-success" style="font-size: 14px">+1.16%</span>
+                            <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+                      </li>
+                    </ul>
+                  </div>
+                </el-col>
+
+                <el-col :span="6">
+                  <div class="total-frame">
+                    <ul>
+                      <li class="total-title">昨日|单次使用平均时长</li>
+                      <li class="total-time">2019-03-10</li>
+                      
+                      <li><span class="total-num-size">3,046</span>秒</li>
+                      <li>
+                            <span class="color-success" style="font-size: 14px">+1.34%</span>
+                            <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+                      </li>
+                    </ul>
+                  </div>                 
+                </el-col>
+
+                
+                <el-col :span="6">
+                  <div class="total-frame">
+                    <ul>
+                      <li class="total-title"><a href="#">昨日|人均使用深度</a></li>
+                      <li class="total-time">2019-03-10</li>
+                     
+                      <li><span class="total-num-size">17.53</span></li>
+                      <li>
+                            <span class="color-success" style="font-size: 14px">+1.12%</span>
+                            <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+                      </li>
+                    </ul>
+                  </div>                 
+                </el-col>
+             
+            </el-row>
+        </div>
+
+
+        <div class="statistics-layout">
+              
+              <el-row :gutter="20">
+                
+                <el-col :span="12" class="echarts-item ">
+               
+                  <div class="total-frame echarts-title">
+                    <ul>
+                      <li class="total-title">昨日|新用户访问占比</li>
+                      <li class="total-time">2019-03-01<span>~</span>2019-03-10|上线至今</li>
+                      <li>
+                            <span class="color-danger" style="font-size: 14px">-10%</span>
+                            <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+                          </li>
+                    </ul>        
+                  </div>
+
+                  <div class="total-frame echarts-table">
+                    <ve-ring :data="ringChartData" :settings="ringChartSettings"></ve-ring>
+                  </div>
+                </el-col>
+
+                <el-col :span="12" class="echarts-item ">
+               
+                  <div class="total-frame echarts-title">
+                    <ul>
+                      <li class="total-title">访问终端分布国家</li>
+                      <li class="total-time">2018-01-01<span>~</span>2019-03-10|昨日</li>
+                    </ul>        
+                  </div>
+
+                  <div class="total-frame echarts-table">
+                    <ve-pie :data="pieChartData" :settings="pieChartSettings"></ve-pie>
+                  </div>
+                </el-col>
+
+                
+                
               </el-row>
-            </div>
-          </div>
-        </el-col>
-        <el-col :span="12">
-          <div class="out-border">
-            <div class="layout-title">用户总览</div>
-            <div style="padding: 40px">
-              <el-row>
-                <el-col :span="6" class="color-danger overview-item-value">100</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">200</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">1000</el-col>
-                <el-col :span="6" class="color-danger overview-item-value">5000</el-col>
-              </el-row>
-              <el-row class="font-medium">
-                <el-col :span="6" class="overview-item-title">今日新增</el-col>
-                <el-col :span="6" class="overview-item-title">昨日新增</el-col>
-                <el-col :span="6" class="overview-item-title">本月新增</el-col>
-                <el-col :span="6" class="overview-item-title">会员总数</el-col>
-              </el-row>
-            </div>
-          </div>
-        </el-col>
-      </el-row>
-    </div>
-    <div class="statistics-layout">
-      <div class="layout-title">订单统计</div>
-      <el-row>
-        <el-col :span="4">
-          <div style="padding: 20px">
-            <div>
-              <div style="color: #909399;font-size: 14px">本月订单总数</div>
-              <div style="color: #606266;font-size: 24px;padding: 10px 0">10000</div>
-              <div>
-                <span class="color-success" style="font-size: 14px">+10%</span>
-                <span style="color: #C0C4CC;font-size: 14px">同比上月</span>
-              </div>
-            </div>
-            <div style="margin-top: 20px;">
-              <div style="color: #909399;font-size: 14px">本周订单总数</div>
-              <div style="color: #606266;font-size: 24px;padding: 10px 0">1000</div>
-              <div>
-                <span class="color-danger" style="font-size: 14px">-10%</span>
-                <span style="color: #C0C4CC;font-size: 14px">同比上周</span>
-              </div>
-            </div>
-            <div style="margin-top: 20px;">
-              <div style="color: #909399;font-size: 14px">本月销售总额</div>
-              <div style="color: #606266;font-size: 24px;padding: 10px 0">100000</div>
-              <div>
-                <span class="color-success" style="font-size: 14px">+10%</span>
-                <span style="color: #C0C4CC;font-size: 14px">同比上月</span>
-              </div>
-            </div>
-            <div style="margin-top: 20px;">
-              <div style="color: #909399;font-size: 14px">本周销售总额</div>
-              <div style="color: #606266;font-size: 24px;padding: 10px 0">50000</div>
-              <div>
-                <span class="color-danger" style="font-size: 14px">-10%</span>
-                <span style="color: #C0C4CC;font-size: 14px">同比上周</span>
-              </div>
-            </div>
-          </div>
-        </el-col>
-        <el-col :span="20">
-          <div style="padding: 10px;border-left:1px solid #DCDFE6">
-            <el-date-picker
-              style="float: right;z-index: 1"
-              size="small"
-              v-model="orderCountDate"
-              type="daterange"
-              align="right"
-              unlink-panels
-              range-separator="至"
-              start-placeholder="开始日期"
-              end-placeholder="结束日期"
-              @change="handleDateChange"
-              :picker-options="pickerOptions">
-            </el-date-picker>
-            <div>
-              <ve-line
-                :data="chartData"
-                :legend-visible="false"
-                :loading="loading"
-                :data-empty="dataEmpty"
-                :settings="chartSettings"></ve-line>
-            </div>
-          </div>
-        </el-col>
-      </el-row>
-    </div>
-  </div>
+        </div>
+
+   </div>
 </template>
 
 <script>
   import {str2Date} from '@/utils/date';
-  const DATA_FROM_BACKEND = {
-    columns: ['date', 'orderCount','orderAmount'],
-    rows: [
-      {date: '2018-11-01', orderCount: 10, orderAmount: 1093},
-      {date: '2018-11-02', orderCount: 20, orderAmount: 2230},
-      {date: '2018-11-03', orderCount: 33, orderAmount: 3623},
-      {date: '2018-11-04', orderCount: 50, orderAmount: 6423},
-      {date: '2018-11-05', orderCount: 80, orderAmount: 8492},
-      {date: '2018-11-06', orderCount: 60, orderAmount: 6293},
-      {date: '2018-11-07', orderCount: 20, orderAmount: 2293},
-      {date: '2018-11-08', orderCount: 60, orderAmount: 6293},
-      {date: '2018-11-09', orderCount: 50, orderAmount: 5293},
-      {date: '2018-11-10', orderCount: 30, orderAmount: 3293},
-      {date: '2018-11-11', orderCount: 20, orderAmount: 2293},
-      {date: '2018-11-12', orderCount: 80, orderAmount: 8293},
-      {date: '2018-11-13', orderCount: 100, orderAmount: 10293},
-      {date: '2018-11-14', orderCount: 10, orderAmount: 1293},
-      {date: '2018-11-15', orderCount: 40, orderAmount: 4293}
-    ]
-  };
+  
+  
+
+
+
+
   export default {
     name: 'home',
     data() {
+
       return {
-        pickerOptions: {
-          shortcuts: [{
-            text: '最近一周',
-            onClick(picker) {
-              const end = new Date();
-              let start = new Date();
-              start.setFullYear(2018);
-              start.setMonth(10);
-              start.setDate(1);
-              end.setTime(start.getTime() + 3600 * 1000 * 24 * 7);
-              picker.$emit('pick', [start, end]);
-            }
+
+        lineChartData: {
+        columns: ['日期', '成本', '利润', '占比', '其他'],
+        rows: [{
+          '访问数量': 44516, '日期': '03月1日', '订单数量': 2523, '占比': 0.12, '其他': 100
+        }, {
+          '访问数量': 12523, '日期': '03月2日', '订单数量': 1823, '占比': 0.345, '其他': 100
+        }, {
+          '访问数量': 21273, '日期': '03月3日', '订单数量': 2623, '占比': 0.7, '其他': 100
+        }, {
+          '访问数量': 41263, '日期': '03月4日', '订单数量': 3226, '占比': 0.31, '其他': 100
+        }, {
+          '访问数量': 31213, '日期': '03月5日', '订单数量': 2383, '占比': 0.12, '其他': 100
+        }, {
+          '访问数量': 71123, '日期': '03月6日', '订单数量': 4521, '占比': 0.65, '其他': 100
+        }, {
+          '访问数量': 44516, '日期': '03月7日', '订单数量': 3503, '占比': 0.65, '其他': 100
+        }]
+      },
+      lineChartSettings: {
+        metrics: ['访问数量', '订单数量'],
+        dimension: ['日期']
+      },
+      lineChartMarkPoint: {
+        data: [{
+          name: '最大值',
+          type: 'max'
+        }]
+      },
+        ringChartSettings: {
+          dimension: '终端类型',
+          metrics: '次数'
+        },
+
+        ringChartData: {
+          columns: [ '终端类型', '次数'],
+          rows: [{
+            '终端类型': 'web页面浏览人均次数', '次数': 4305
           }, {
-            text: '最近一月',
-            onClick(picker) {
-              const end = new Date();
-              let start = new Date();
-              start.setFullYear(2018);
-              start.setMonth(10);
-              start.setDate(1);
-              end.setTime(start.getTime() + 3600 * 1000 * 24 * 30);
-              picker.$emit('pick', [start, end]);
-            }
+             '终端类型': '微信小程序浏览人均次数', '次数': 10236
           }]
         },
-        orderCountDate: '',
-        chartSettings: {
-          xAxisType: 'time',
-          area:true,
-          axisSite: { right: ['orderAmount']},
-        labelMap: {'orderCount': '订单数量', 'orderAmount': '订单金额'}},
-        chartData: {
-          columns: [],
-          rows: []
-        },
-        loading: false,
-        dataEmpty: false
-      }
-    },
-    created(){
-      this.initOrderCountDate();
-      this.getData();
-    },
-    methods:{
-      handleDateChange(){
-        this.getData();
+
+         pieChartData: {
+        columns: [ '访问人数', '利润'],
+        rows: [{
+           '访问人数': 123, '国家': '中国'
+        }, {
+           '访问人数': 1223, '国家': '加拿大'
+        }, {
+          '访问人数': 2123, '国家': '新西兰'
+        }, {
+          '访问人数': 4123, '国家': '日本'
+        }, {
+          '访问人数': 3123, '国家': '菲律宾'
+        }, {
+          '访问人数': 7123, '国家': '韩国'
+        },{
+          '访问人数': 71, '国家': '其他'
+        }]
       },
-      initOrderCountDate(){
-        let start = new Date();
-        start.setFullYear(2018);
-        start.setMonth(10);
-        start.setDate(1);
-        const end = new Date();
-        end.setTime(start.getTime() + 1000 * 60 * 60 * 24 * 7);
-        this.orderCountDate=[start,end];
+      pieChartSettings: {
+        dimension: '国家',
+        metrics: '访问人数'
       },
-      getData(){
-        setTimeout(() => {
-          this.chartData = {
-            columns: ['date', 'orderCount','orderAmount'],
-            rows: []
-          };
-          for(let i=0;i<DATA_FROM_BACKEND.rows.length;i++){
-            let item=DATA_FROM_BACKEND.rows[i];
-            let currDate=str2Date(item.date);
-            let start=this.orderCountDate[0];
-            let end=this.orderCountDate[1];
-            if(currDate.getTime()>=start.getTime()&&currDate.getTime()<=end.getTime()){
-              this.chartData.rows.push(item);
-            }
-          }
-          this.dataEmpty = false;
-          this.loading = false
-        }, 1000)
-      }
+
+        
+
+
+       
     }
+  }
   }
 </script>
 
 <style scoped>
+  .echarts-item{
+  padding-bottom:15px; 
+  }
   .app-container {
-    margin-top: 40px;
+    margin-top: 20px;
     margin-left: 120px;
     margin-right: 120px;
+
   }
 
   .address-layout {
   }
 
   .total-layout {
-    margin-top: 20px;
+    margin-bottom:20px;
   }
 
-  .total-frame {
-    border: 1px solid #DCDFE6;
-    padding: 20px;
-    height: 100px;
-  }
 
-  .total-icon {
-    color: #409EFF;
-    width: 60px;
-    height: 60px;
-  }
+  
+     .total-frame ul{
+  
+      list-style:none;
+      color: #777C7C;
+      font-size: 14px;
+      color: #8492A6;
+      padding:0;
+      margin:0;
+     
+     
+    }
+    .total-frame{
 
-  .total-title {
-    position: relative;
-    font-size: 16px;
-    color: #909399;
-    left: 70px;
-    top: -50px;
-  }
+    background-color: #F7F9FA;
+    display: block; 
+    
+    border-radius: 3px;
+    padding: 14px 20px;
 
-  .total-value {
-    position: relative;
-    font-size: 18px;
-    color: #606266;
-    left: 70px;
-    top: -40px;
-  }
+    }
+    
 
+    ul .total-title{
+      color: #5F6E82;
+     
+    }
+
+     .total-time{
+          font-size: 12px;
+          
+          color: #8492A6;
+          line-height:150%;
+     
+    }
+      ul .total-heji{
+        font-size: 13px;
+         padding-top:10px;
+     
+    }
+     ul .total-num-size{
+          font-size: 40px;
+          color: #475669;
+
+    }
+
+
+ 
   .un-handle-layout {
     margin-top: 20px;
     border: 1px solid #DCDFE6;
@@ -369,7 +420,7 @@
     color: #606266;
     padding: 15px 20px;
     background: #F2F6FC;
-    font-weight: bold;
+    
   }
 
   .un-handle-content {
@@ -401,6 +452,6 @@
 
   .statistics-layout {
     margin-top: 20px;
-    border: 1px solid #DCDFE6;
+    //border: 1px solid #DCDFE6;
   }
 </style>
