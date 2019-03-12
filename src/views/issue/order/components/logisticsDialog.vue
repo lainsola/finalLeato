@@ -1,14 +1,8 @@
 <template> 
-  <el-dialog title="查看订单详情"
+  <el-dialog title="订单跟踪"
              :visible.sync="visible"
              :before-close="handleClose"
              width="40%">
-    <font size="4">订单号：201809150101000001<br>
-    投诉人：香港万宁<br>
-    被投诉人：雅诗兰黛<br>
-    投诉理由：进货太多，不要了。但是雅诗兰黛这家公司不让退款<br></font>
-    <hr />
-    <font size="4">订单发货详情：<br></font>
     <el-steps direction="vertical"
               :active="6"
               finish-status="success"
