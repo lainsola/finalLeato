@@ -240,15 +240,79 @@
           this.list[9].sourceType="毛向前";
         });
       },
+      afterdelete() {
+        this.listLoading = true;
+        fetchList(this.listQuery).then(response => {
+          this.listLoading = false;
+          this.list = response.data.list;
+          this.total = response.data.total;
+          //this.list.splice(ids,1);
+          this.list[0].pic = require('./components/agency/02.jpg');
+          this.list[1].pic = require('./components/agency/03.jpg');
+          this.list[2].pic = require('./components/agency/04.jpg');
+          this.list[3].pic = require('./components/agency/05.jpg');
+          this.list[4].pic = require('./components/agency/06.jpg');
+          this.list[5].pic = require('./components/agency/07.jpg');
+          this.list[6].pic = require('./components/agency/08.jpg');
+          this.list[7].pic = require('./components/agency/09.jpg');
+          this.list[8].pic = require('./components/agency/10.jpg');
+          this.list[9].pic = require('./components/agency/11.jpg');
+          this.list[0].brandName="宝尊";
+          this.list[1].brandName="小红书";
+          this.list[2].brandName="网易考拉";
+          this.list[3].brandName="唯品会";
+          this.list[4].brandName="京东";
+          this.list[5].brandName="（百丽）宝胜国际";
+          this.list[6].brandName="胜道";
+          this.list[7].brandName="锐力";
+          this.list[8].brandName="佳杰科技";
+          this.list[9].brandName="佳杰科技";
+          this.list[0].payType="上海";
+          this.list[1].payType="深圳";
+          this.list[2].payType="杭州";
+          this.list[3].payType="深圳";
+          this.list[4].payType="北京";
+          this.list[5].payType="上海";
+          this.list[6].payType="广州";
+          this.list[7].payType="广州";
+          this.list[8].payType="深圳";
+          this.list[9].payType="深圳";
+          this.list[0].totalAmount=13584681542;
+          this.list[1].totalAmount=14754413813;
+          this.list[2].totalAmount=15848263854;
+          this.list[3].totalAmount=13758456842;
+          this.list[4].totalAmount=13648524522;
+          this.list[5].totalAmount=15846822542;
+          this.list[6].totalAmount=12355157515;
+          this.list[7].totalAmount=15755448726;
+          this.list[8].totalAmount=13897157878;
+          this.list[9].totalAmount=13897157878;
+          this.list[0].sourceType="仇文彬";
+          this.list[1].sourceType="毛文超";
+          this.list[2].sourceType="丁磊";
+          this.list[3].sourceType="沈亚";
+          this.list[4].sourceType="徐磊";
+          this.list[5].sourceType="盛百椒";
+          this.list[6].sourceType="郭艾伦";
+          this.list[7].sourceType="梁安毅";
+          this.list[8].sourceType="毛向前";
+          this.list[9].sourceType="毛向前";
+        });
+      },
       deleteOrder(ids){
+        this.listLoading = true;
         this.$confirm('是否要进行该删除操作?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-           this.students.splice(ids,1)
-        })
-      },
+          this.afterdelete();
+          this.$message({
+            type:"success",
+            message:"删除成功"
+          });
+          });
+        },
       covertOrder(order){
         let address=order.receiverProvince+order.receiverCity+order.receiverRegion+order.receiverDetailAddress;
         let listItem={

@@ -54,7 +54,7 @@
         <el-table-column label="编号" width="100" align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="厂商图片" width="120" align="center">
+        <el-table-column label="厂商商标" width="120" align="center">
           <template slot-scope="scope"><img style="height: 80px" :src="scope.row.pic"></template>
         </el-table-column>
         <el-table-column label="厂家名称" align="center" width="120">
