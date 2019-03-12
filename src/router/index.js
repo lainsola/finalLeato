@@ -215,37 +215,11 @@ export const constantRouterMap = [
         hidden:true
       },
       {
-        path: 'deliverOrderList',
-        name: 'deliverOrderList',
-        component: () => import('@/views/issue/order/deliverOrderList'),
-        meta: {title: '发货列表'},
-        hidden:true
-      },
-      {
         path: 'orderSetting',
         name: 'orderSetting',
         component: () => import('@/views/issue/order/setting'),
         meta: {title: '订单设置', icon: 'order-setting'}
       },
-      {
-        path: 'returnApply',
-        name: 'returnApply',
-        component: () => import('@/views/issue/apply/index'),
-        meta: {title: '退货申请处理', icon: 'order-return'}
-      },
-      {
-        path: 'returnReason',
-        name: 'returnReason',
-        component: () => import('@/views/issue/apply/reason'),
-        meta: {title: '退货原因设置', icon: 'order-return-reason'}
-      },
-      {
-        path: 'returnApplyDetail',
-        name: 'returnApplyDetail',
-        component: () => import('@/views/issue/apply/applyDetail'),
-        meta: {title: '退货原因详情'},
-        hidden:true
-      }
     ]
   },
   {
@@ -283,33 +257,6 @@ export const constantRouterMap = [
         hidden:true
       },
       {
-        path: 'coupon',
-        name: 'coupon',
-        component: () => import('@/views/sms/coupon/index'),
-        meta: {title: '优惠券列表', icon: 'sms-coupon'}
-      },
-      {
-        path: 'addCoupon',
-        name: 'addCoupon',
-        component: () => import('@/views/sms/coupon/add'),
-        meta: {title: '添加优惠券'},
-        hidden:true
-      },
-      {
-        path: 'updateCoupon',
-        name: 'updateCoupon',
-        component: () => import('@/views/sms/coupon/update'),
-        meta: {title: '修改优惠券'},
-        hidden:true
-      },
-      {
-        path: 'couponHistory',
-        name: 'couponHistory',
-        component: () => import('@/views/sms/coupon/history'),
-        meta: {title: '优惠券领取详情'},
-        hidden:true
-      },
-      {
         path: 'brand',
         name: 'homeBrand',
         component: () => import('@/views/sms/brand/index'),
@@ -333,26 +280,6 @@ export const constantRouterMap = [
         component: () => import('@/views/sms/subject/index'),
         meta: {title: '专题推荐', icon: 'sms-subject'}
       },
-      {
-        path: 'advertise',
-        name: 'homeAdvertise',
-        component: () => import('@/views/sms/advertise/index'),
-        meta: {title: '广告列表', icon: 'sms-ad'}
-      },
-      {
-        path: 'addAdvertise',
-        name: 'addHomeAdvertise',
-        component: () => import('@/views/sms/advertise/add'),
-        meta: {title: '添加广告'},
-        hidden:true
-      },
-      {
-        path: 'updateAdvertise',
-        name: 'updateHomeAdvertise',
-        component: () => import('@/views/sms/advertise/update'),
-        meta: {title: '编辑广告'},
-        hidden:true
-      }
     ]
   },
   {
@@ -385,11 +312,10 @@ export const constantRouterMap = [
         meta: {title: '厂商管理', icon: 'order-setting'}
       },
       {
-        path: 'deliverOrderList',
-        name: 'deliverOrderList',
-        component: () => import('@/views/pro/order/deliverOrderList'),
-        meta: {title: '发货列表'},
-        hidden:true
+        path: 'check',
+        name: 'check',
+        component: () => import('@/views/pro/order/check'),
+        meta: {title: '厂商审核', icon: 'order-setting'}
       },
 
 

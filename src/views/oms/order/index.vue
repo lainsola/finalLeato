@@ -24,8 +24,8 @@
           <el-form-item label="输入搜索：">
             <el-input v-model="listQuery.orderSn" class="input-width" placeholder="订单编号"></el-input>
           </el-form-item>
-          <el-form-item label="收货人：">
-            <el-input v-model="listQuery.receiverKeyword" class="input-width" placeholder="收货人姓名/手机号码"></el-input>
+          <el-form-item label="订货用户：">
+            <el-input v-model="listQuery.receiverKeyword" class="input-width" placeholder="订货人姓名/手机号码"></el-input>
           </el-form-item>
           <el-form-item label="提交时间：">
             <el-date-picker
@@ -86,7 +86,7 @@
         <el-table-column label="提交时间" width="180" align="center">
           <template slot-scope="scope">{{scope.row.createTime | formatCreateTime}}</template>
         </el-table-column>
-        <el-table-column label="用户账号" align="center">
+        <el-table-column label="订货用户" align="center">
           <template slot-scope="scope">{{scope.row.memberUsername}}</template>
         </el-table-column>
         <el-table-column label="订单金额" width="120" align="center">
@@ -418,6 +418,26 @@
           this.listLoading = false;
           this.list = response.data.list;
           this.total = response.data.total;
+          this.list[0].memberUsername="ebey";
+          this.list[1].memberUsername="天猫自营";
+          this.list[2].memberUsername="小红书";
+          this.list[3].memberUsername="网易考拉";
+          this.list[4].memberUsername="唯品会";
+          this.list[5].memberUsername="京东";
+          this.list[6].memberUsername="（百丽）宝胜国际";
+          this.list[7].memberUsername="胜道";
+          this.list[8].memberUsername="锐力";
+          this.list[9].memberUsername="佳杰科技";
+          this.list[0].totalAmount=42834;
+          this.list[1].totalAmount=16578;
+          this.list[2].totalAmount=1585465;
+          this.list[3].totalAmount=1542;
+          this.list[4].totalAmount=1578778;
+          this.list[5].totalAmount=65668;
+          this.list[6].totalAmount=3745;
+          this.list[7].totalAmount=23445;
+          this.list[8].totalAmount=47327436;
+          this.list[9].totalAmount=15878;
         });
       },
       deleteOrder(ids){

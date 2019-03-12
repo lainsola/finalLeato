@@ -73,7 +73,7 @@
         <el-table-column label="申请时间" width="180" align="center">
           <template slot-scope="scope">{{scope.row.createTime | formatTime}}</template>
         </el-table-column>
-        <el-table-column label="用户账号" align="center">
+        <el-table-column label="退货用户" align="center">
           <template slot-scope="scope">{{scope.row.memberUsername}}</template>
         </el-table-column>
         <el-table-column label="退款金额" width="180" align="center">
@@ -261,6 +261,16 @@
           this.listLoading = false;
           this.list = response.data.list;
           this.total = response.data.total;
+          this.list[0].memberUsername="ebey";
+          this.list[1].memberUsername="天猫自营";
+          this.list[2].memberUsername="小红书";
+          this.list[3].memberUsername="网易考拉";
+          this.list[4].memberUsername="唯品会";
+          this.list[5].memberUsername="京东";
+          this.list[6].memberUsername="（百丽）宝胜国际";
+          this.list[7].memberUsername="胜道";
+          this.list[8].memberUsername="锐力";
+          this.list[9].memberUsername="佳杰科技";
         });
       }
     }
