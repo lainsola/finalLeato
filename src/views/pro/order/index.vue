@@ -3,7 +3,7 @@
     <el-card class="filter-container" shadow="never">
       <div>
         <i class="el-icon-search"></i>
-        <span>酷酷酷酷酷酷</span>
+        <span>搜索</span>
         <el-button
           style="float:right"
           type="primary"
@@ -24,7 +24,7 @@
             <el-input v-model="listQuery.id" class="input-width" placeholder="编号"></el-input>
           </el-form-item>
           <el-form-item label="代理商名：">
-            <el-input v-model="listQuery.receiverKeyword" class="input-width" placeholder="收货人姓名/手机号码"></el-input>
+            <el-input v-model="listQuery.brandName" class="input-width" placeholder="名称"></el-input>
           </el-form-item>
           <el-form-item label="注册时间：">
             <el-date-picker

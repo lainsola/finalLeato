@@ -203,12 +203,11 @@
           this.list[2].pic = require('./components/03.jpg');
           this.list[3].pic = require('./components/04.jpg');
           this.list[4].pic = require('./components/05.jpg');
-          this.list[5].pic = require('./components/06.jpg');
-          this.list[6].pic = require('./components/07.jpg');
-          this.list[7].pic = require('./components/08.jpg');
-          this.list[8].pic = require('./components/09.jpg');
-          this.list[9].pic = require('./components/10.jpg');
-        
+          this.list[0].status=1;
+          this.list[1].status=1;
+          this.list[2].status=1;
+          this.list[3].status=1;
+          this.list[4].status=1;
           this.total = response.data.total;
         });
 
@@ -226,11 +225,7 @@
           this.list[3].brandName="香奈儿";
           this.list[4].brandName="宝格丽";
 
-    this.list[0].status=1;
-this.list[1].status=1;
-this.list[2].status=1;
-this.list[3].status=1;
-this.list[4].status=1;
+
 
           this.list[0].mudidi="中国";
           this.list[1].mudidi="美国";
@@ -293,7 +288,7 @@ this.list[4].status=1;
           type: 'warning'
         }).then(() => {
           this.list[index].verifyStatus = 1;
-this.list[index].status = 0;
+          this.list[index].status = 0;
         });
       },
 

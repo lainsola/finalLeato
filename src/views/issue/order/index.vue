@@ -69,7 +69,7 @@
           <template slot-scope="scope">{{scope.row.createTime | formatCreateTime}}</template>
         </el-table-column>
         <el-table-column label="提交理由" align="center">
-          <template slot-scope="scope">不要了，就此退货...</template>
+          <template slot-scope="scope">{{scope.row.reason}}</template>
         </el-table-column>
         <el-table-column label="订单金额" width="120" align="center">
           <template slot-scope="scope">￥{{scope.row.totalAmount}}</template>
@@ -394,6 +394,27 @@
           this.listLoading = false;
           this.list = response.data.list;
           this.total = response.data.total;
+          this.list[0].reason="不要了";
+          this.list[1].reason="缺货";
+          this.list[2].reason="等待时间太长了";
+          this.list[3].reason="缺货";
+          this.list[4].reason="不要了";
+          this.list[5].reason="不要了";
+          this.list[6].reason="不要了";
+          this.list[7].reason="不要了";
+          this.list[8].reason="不要了";
+          this.list[9].reason="不要了";
+          this.list[0].totalAmount=42834;
+          this.list[1].totalAmount=16578;
+          this.list[2].totalAmount=1585465;
+          this.list[3].totalAmount=1542;
+          this.list[4].totalAmount=1578778;
+          this.list[5].totalAmount=65668;
+          this.list[6].totalAmount=3745;
+          this.list[7].totalAmount=23445;
+          this.list[8].totalAmount=47327436;
+          this.list[9].totalAmount=15878;
+
         });
       },
       deleteOrder(ids){
