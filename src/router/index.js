@@ -387,23 +387,12 @@ export const constantRouterMap = [
       {
         path: 'deliverOrderList',
         name: 'deliverOrderList',
-        component: () => import('@/views/pro/order/distributorDetail'),
-        meta: {title: '厂商详情'},
+        component: () => import('@/views/pro/order/deliverOrderList'),
+        meta: {title: '发货列表'},
         hidden:true
       },
-      {
-        path: 'check',
-        name: 'check',
-        component: () => import('@/views/pro/order/check'),
-        meta: {title: '厂商审核', icon: 'order-setting'}
-      },
-      {
-        path: 'checkdetail',
-        name: 'checkdetail',
-        component: () => import('@/views/pro/order/components/checkDetail'),
-        meta: {title: '厂家审核详情'},
-        hidden:true
-      },
+
+
     ]
   },
   {path: '*', redirect: '/404', hidden: true}
