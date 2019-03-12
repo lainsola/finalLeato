@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
 
-    <div class="total-layout">
+    <div class="total-numa total-layout ">
       <el-row :gutter="20">
 
         <el-col :span="6">
@@ -50,6 +50,66 @@
           </div>
         </el-col>
 
+        <el-col :span="6">
+
+          <div class="total-frame">
+            <ul>
+              <li class="total-title"><a href="#">昨日|访问次数</a></li>
+              <li class="total-time">2019-03-11<span>~</span>2019-03-11|昨日</li>
+              <li class="total-heji">3.11（日）</li>
+              <li><span class="total-num-size">7178</span>次</li>
+              <li>
+                <span class="color-success" style="font-size: 14px">+3.62%</span>
+                <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+              </li>
+            </ul>
+          </div>
+        </el-col>
+        <el-col :span="6">
+
+          <div class="total-frame">
+            <ul>
+              <li class="total-title"><a href="#">昨日|访问次数</a></li>
+              <li class="total-time">2019-03-11<span>~</span>2019-03-11|昨日</li>
+              <li class="total-heji">3.11（日）</li>
+              <li><span class="total-num-size">7178</span>次</li>
+              <li>
+                <span class="color-success" style="font-size: 14px">+3.62%</span>
+                <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+              </li>
+            </ul>
+          </div>
+        </el-col>
+        <el-col :span="6">
+
+          <div class="total-frame">
+            <ul>
+              <li class="total-title"><a href="#">昨日|访问次数</a></li>
+              <li class="total-time">2019-03-11<span>~</span>2019-03-11|昨日</li>
+              <li class="total-heji">3.11（日）</li>
+              <li><span class="total-num-size">7178</span>次</li>
+              <li>
+                <span class="color-success" style="font-size: 14px">+3.62%</span>
+                <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+              </li>
+            </ul>
+          </div>
+        </el-col>
+        <el-col :span="6">
+
+          <div class="total-frame">
+            <ul>
+              <li class="total-title"><a href="#">昨日|访问次数</a></li>
+              <li class="total-time">2019-03-11<span>~</span>2019-03-11|昨日</li>
+              <li class="total-heji">3.11（日）</li>
+              <li><span class="total-num-size">7178</span>次</li>
+              <li>
+                <span class="color-success" style="font-size: 14px">+3.62%</span>
+                <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+              </li>
+            </ul>
+          </div>
+        </el-col>
         <el-col :span="6">
 
           <div class="total-frame">
@@ -145,7 +205,7 @@
     </div>
 
 
-    <div class="total-layout">
+    <div class="total-numa total-layout">
       <el-row :gutter="20">
 
         <el-col :span="6">
@@ -212,7 +272,7 @@
     </div>
 
 
-    <div class="statistics-layout">
+    <div class="statistics-layout total-layout">
 
       <el-row :gutter="20">
 
@@ -240,11 +300,45 @@
             <ul>
               <li class="total-title">访问终端分布国家</li>
               <li class="total-time">2018-01-01<span>~</span>2019-03-10|昨日</li>
+              <li>
+                <span class="color-danger" style="font-size: 14px">-10%</span>
+                <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+              </li>
             </ul>
           </div>
 
           <div class="total-frame echarts-table">
             <ve-pie :data="pieChartData" :settings="pieChartSettings"></ve-pie>
+          </div>
+        </el-col>
+
+
+
+        <el-col :span="12" class="echarts-item ">
+
+          <div class="total-frame echarts-title">
+            <ul>
+              <li class="total-title">小程序用户复购率</li>
+              <li class="total-time">2018-01-01<span>~</span>2019-03-10|最近一周</li>
+            </ul>
+          </div>
+
+          <div class="total-frame echarts-table">
+            <ve-line :data="lineChartDataReuse" :settings="lineChartSettingsReuse" :mark-point="lineChartMarkPointReuse"></ve-line>
+          </div>
+        </el-col>
+
+        <el-col :span="12" class="echarts-item ">
+
+          <div class="total-frame echarts-title">
+            <ul>
+              <li class="total-title">小程序用户偏好分类</li>
+              <li class="total-time">2019-03-10|昨日</li>
+            </ul>
+          </div>
+
+          <div class="total-frame echarts-table">
+            <ve-funnel :data="chartData"></ve-funnel>
           </div>
         </el-col>
 
@@ -264,6 +358,55 @@
     name: 'home',
     data() {
       return {
+
+
+        chartData: {
+          columns: ['状态', '数值'],
+          rows: [
+            { '状态': '男装女装', '数值': 900 },
+            { '状态': '数码手机', '数值': 600 },
+            { '状态': '美妆护肤', '数值': 300 },
+            { '状态': '运动户外', '数值': 100 },
+            { '状态': '美食生鲜', '数值': 900 },
+            { '状态': '儿童玩具', '数值': 600 },
+            { '状态': '生活用品', '数值': 300 },
+            { '状态': '订单', '数值': 100 }
+          ]
+        },
+
+
+        lineChartDataReuse: {
+          columns: ['3-5(二)', '3-6(三)', '3-7(四)', '3-8(五)', '3-9(六)', '3-10(日)', '3-11(一)'],
+          rows: [{
+            '3-5(二)': 2.61, '日期': '第0天', '3-6(三)': 2.11, '3-7(四)': 2.23, '3-8(五)': 2.65,'3-9(六)':2.7, '3-10(日)':2.54, '3-11(一)':2.3
+          }, {
+            '3-5(二)': 5.59, '日期': '第1天', '3-6(三)': 4.45, '3-7(四)':4.96 , '3-8(五)': 5.16,'3-9(六)':5.06, '3-10(日)':5.41, '3-11(一)':3.94
+          }, {
+            '3-5(二)': 5.12, '日期': '第2天', '3-6(三)':5.3 , '3-7(四)': 4.47, '3-8(五)':5.45 ,'3-9(六)':5.82, '3-10(日)':3.9,
+          }, {
+            '3-5(二)':6.03 , '日期': '第3天', '3-6(三)':5.47 , '3-7(四)': 5.49, '3-8(五)':5.36 ,'3-9(六)':3.78
+          }, {
+            '3-5(二)': 5.52, '日期': '第4天', '3-6(三)': 5.4, '3-7(四)': 5.81, '3-8(五)': 4.47
+          }, {
+            '3-5(二)':5.51 , '日期': '第5天', '3-6(三)':4.64 , '3-7(四)': 4.01
+          }, {
+            '3-5(二)': 5.36, '日期': '第6天', '3-6(三)': 3.79
+          },{
+            '3-5(二)': 5.55, '日期': '第7天'
+          }]
+        },
+        lineChartSettingsReuse: {
+          metrics: ['3-5(二)', '3-6(三)',, '3-7(四)', '3-8(五)', '3-9(六)', '3-10(日)', '3-11(一)'],
+          dimension: ['日期']
+        },
+        lineChartMarkPointReuse: {
+          data: [{
+            name: '最大值',
+            type: 'max'
+          }]
+        },
+
+
         lineChartData: {
           columns: ['日期', '成本', '利润', '占比', '其他'],
           rows: [{
@@ -282,10 +425,13 @@
             '访问数量': 44516, '日期': '03月7日', '订单数量': 3503, '占比': 0.65, '其他': 100
           }]
         },
+
+
         lineChartSettings: {
           metrics: ['访问数量', '订单数量'],
           dimension: ['日期']
         },
+
         lineChartMarkPoint: {
           data: [{
             name: '最大值',
@@ -334,6 +480,27 @@
 </script>
 
 <style scoped>
+
+
+  .total-frame:hover {
+    border: 2px solid #3AD1C5;
+    box-shadow: 0 2px 11px 0 rgba(190,202,218,.17);
+    border: 2px #FFF solid;
+    border-radius: 3px;
+
+
+  }
+  .total-frame {
+    font-size: 14px;
+
+    background-color: #F7F9FA;
+    display: block;
+    border-radius: 3px;
+    margin: 10px 10px;
+    padding: 14px 20px;
+
+
+  }
   .echarts-item{
     padding-bottom:15px;
   }
@@ -349,23 +516,12 @@
   }
 
   .total-frame ul{
-
     list-style:none;
-    color: #777C7C;
-    font-size: 14px;
-    color: #8492A6;
     padding:0;
     margin:0;
-
-
   }
-  .total-frame{
-    background-color: #F7F9FA;
-    display: block;
 
-    border-radius: 3px;
-    padding: 14px 20px;
-  }
+
 
   ul .total-title{
     color: #5F6E82;
@@ -419,8 +575,5 @@
   .out-border {
     border: 1px solid #DCDFE6;
   }
-  .statistics-layout {
-    margin-top: 20px;
-  //border: 1px solid #DCDFE6;
-  }
+
 </style>
