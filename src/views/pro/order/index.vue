@@ -107,8 +107,7 @@
 <script>
   import {fetchList,closeOrder,deleteOrder} from '@/api/order'
   import {formatDate} from '@/utils/date';
-  import {fetchList as fetchBrandList} from '@/api/brand';
-  import LogisticsDialog from '@/views/pro/order/components/detail';
+  import LogisticsDialog from '@/views/pro/order/components/manudetail';
   const defaultListQuery = {
     pageNum: 1,
     pageSize: 10,

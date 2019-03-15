@@ -1,16 +1,23 @@
 <template>
-  <div>
-    <el-card class="login-form-layout">
+
+  <div class="all" style="">
+
+    <el-card class="login-form-layout" onmouseover="blu()">
       <el-form autoComplete="on"
                :model="loginForm"
                :rules="loginRules"
                ref="loginForm"
                label-position="left">
         <div style="text-align: center">
-          <svg-icon icon-class="login-mall" style="width: 56px;height: 56px;color: #409EFF"></svg-icon>
+          <svg-icon icon-class="manage" style="width: 56px;height: 56px;color: #1296db"></svg-icon>
         </div>
-        <h2 class="login-title color-main">mall-admin-web</h2>
-        <el-form-item prop="username">
+        <h2 class="login-title color-main" style="color: #1296db">智能化跨境电商</h2>
+       <div class="tab">
+         <a href="#" style="height: 50px;line-height: 50px;width: 150px;text-align: center;color: #66b1ff" @click="tabId=0" class="{tabId=0}">账号密码登录</a>
+         <a href="#" style="height: 50px;line-height: 50px;width: 150px;text-align: center;color: #66b1ff;float: right" @click="tabId=1" class="{tabId=1}">微信登录</a>
+       </div>
+        <div v-show="tabId===0" class="account">
+        <el-form-item prop="username" >
           <el-input name="username"
                     type="text"
                     v-model="loginForm.username"
@@ -41,15 +48,20 @@
             登录
           </el-button>
         </el-form-item>
+        </div>
+        <div class="pic" v-show="tabId===1">
+
+        </div>
       </el-form>
     </el-card>
-    <img :src="login_center_bg" class="login-center-layout">
+    <img :src="login_center_bg" style="width: 1590px;height: 770px;" id="pic" >
+    <footer >Copyright © 2018-2019 东软睿道 首页 关于 开发者平台 服务条款 隐私策略 帮助中心</footer>
   </div>
 </template>
 
 <script>
   import {isvalidUsername} from '@/utils/validate';
-  import login_center_bg from '@/assets/images/login_center_bg.png'
+  import login_center_bg from '@/views/login/timg1.jpg';
 
   export default {
     name: 'login',
@@ -69,6 +81,7 @@
         }
       };
       return {
+        tabId:0,
         loginForm: {
           username: 'admin',
           password: '123456'
@@ -79,10 +92,13 @@
         },
         loading: false,
         pwdType: 'password',
-        login_center_bg
+        login_center_bg,
       }
     },
     methods: {
+      blu(){
+        pic.style.WebkitFilter="blur(15px)"
+      },
       showPwd() {
         if (this.pwdType === 'password') {
           this.pwdType = ''
@@ -108,28 +124,32 @@
       }
     }
   }
+
+
 </script>
-
 <style scoped>
-  .login-form-layout {
-    position: absolute;
-    left: 0;
-    right: 0;
-    width: 360px;
-    margin: 140px auto;
-    border-top: 10px solid #409EFF;
-  }
+    .all{
+      background-image: url("timg1.jpg");
 
-  .login-title {
-    text-align: center;
-  }
-
-  .login-center-layout {
-    background: #409EFF;
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-    margin-top: 200px;
-  }
+    }
+    .login-form-layout {
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 360px;
+      height: 400px;
+      margin: 140px auto;
+      filter:alpha(opacity=100); /*仅在ie中支持*/
+      opacity:1; /*不支持ie*/
+    }
+    .login-title {
+      text-align: center;
+    }
+    footer{
+      color: white;
+      position: absolute;
+      bottom: 25px;
+      font-size: 12px;
+      padding-left: 560px;
+    }
 </style>

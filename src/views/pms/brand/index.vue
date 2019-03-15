@@ -41,10 +41,10 @@
         <el-table-column label="编号" width="100" align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="品牌名称" align="center">
+        <el-table-column label="店铺名称" align="center">
           <template slot-scope="scope">{{scope.row.name}}</template>
         </el-table-column>
-        <el-table-column label="品牌首字母" width="100" align="center">
+        <el-table-column label="店铺首字母" width="100" align="center">
           <template slot-scope="scope">{{scope.row.firstLetter}}</template>
         </el-table-column>
         <el-table-column label="排序" width="100" align="center">

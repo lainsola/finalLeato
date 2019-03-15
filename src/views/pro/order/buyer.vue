@@ -54,7 +54,7 @@
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
         <el-table-column label="厂商图标" width="180" align="center">
-          <template slot-scope="scope"><img style="height: 80px;width:120px;" :src="scope.row.pic"></template>
+          <template slot-scope="scope"><img style="width:120px;" :src="scope.row.pic"></template>
         </el-table-column>
         <el-table-column label="代理商名" align="center">
           <template slot-scope="scope">{{scope.row.brandName}}</template>
@@ -108,7 +108,7 @@
   import {fetchList,closeOrder,deleteOrder} from '@/api/order'
   import {formatDate} from '@/utils/date';
   import {fetchList as fetchBrandList} from '@/api/brand';
-  import LogisticsDialog from '@/views/pro/order/components/manudetail';
+  import LogisticsDialog from '@/views/pro/order/components/logisticsDialog';
   const defaultListQuery = {
     pageNum: 1,
     pageSize: 10,

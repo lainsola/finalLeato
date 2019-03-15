@@ -166,8 +166,12 @@
             </p>
             <p>
               <el-button
-                size="mini"
-                @click="handleShowLog(scope.$index, scope.row)">日志
+              size="mini"
+              @click="handleShowLog(scope.$index, scope.row)"
+              v-show="scope.row.verifyStatus===1">通过</el-button>
+              <el-button
+                size="mini" v-show="scope.row.verifyStatus===0"
+                @click="handleShowLog(scope.$index, scope.row)">审核
               </el-button>
               <el-button
                 size="mini"
@@ -292,7 +296,8 @@
     verifyStatus: null,
     productSn: null,
     productCategoryId: null,
-    brandId: null
+    brandId: null,
+    status:1
   };
   export default {
     name: "productList",
@@ -589,43 +594,23 @@
         console.log("handleShowVerifyDetail",row);
       },
       handleShowLog(index,row){
-        console.log("handleShowLog",row);
+        this.$confirm('是否审核通过?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.list[index].verifyStatus = 1;
+          this.list[index].status = 0;
+        });
       },
       updatePublishStatus(publishStatus, ids) {
-        let params = new URLSearchParams();
-        params.append('ids', ids);
-        params.append('publishStatus', publishStatus);
-        updatePublishStatus(params).then(response => {
-          this.$message({
-            message: '修改成功',
-            type: 'success',
-            duration: 1000
-          });
-        });
+        
       },
       updateNewStatus(newStatus, ids) {
-        let params = new URLSearchParams();
-        params.append('ids', ids);
-        params.append('newStatus', newStatus);
-        updateNewStatus(params).then(response => {
-          this.$message({
-            message: '修改成功',
-            type: 'success',
-            duration: 1000
-          });
-        });
+        
       },
       updateRecommendStatus(recommendStatus, ids) {
-        let params = new URLSearchParams();
-        params.append('ids', ids);
-        params.append('recommendStatus', recommendStatus);
-        updateRecommendStatus(params).then(response => {
-          this.$message({
-            message: '修改成功',
-            type: 'success',
-            duration: 1000
-          });
-        });
+        
       },
       updateDeleteStatus(deleteStatus, ids) {
         let params = new URLSearchParams();

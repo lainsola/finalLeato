@@ -53,6 +53,9 @@
         <el-table-column label="商品名称" align="center">
           <template slot-scope="scope">{{scope.row.productName}}</template>
         </el-table-column>
+        <el-table-column label="商品图片" width="120" align="center">
+          <template slot-scope="scope"><img style="height: 80px;width:100px" :src="scope.row.pic"></template>
+        </el-table-column>
         <el-table-column label="是否推荐" width="200" align="center">
           <template slot-scope="scope">
             <el-switch
@@ -370,12 +373,19 @@
         })
       },
       getList() {
+          
         this.listLoading = true;
         fetchList(this.listQuery).then(response => {
           this.listLoading = false;
           this.list = response.data.list;
           this.total = response.data.total;
-        })
+          this.list[0].pic = require('./huhu/1.jpg');
+          this.list[1].pic = require('./huhu/2.jpg');
+          this.list[2].pic = require('./huhu/3.jpg');
+          this.list[3].pic = require('./huhu/4.jpg');
+          this.list[4].pic = require('./huhu/5.jpg');
+        });
+        
       },
       updateRecommendStatusStatus(ids,status){
         this.$confirm('是否要修改推荐状态?', '提示', {
@@ -383,9 +393,7 @@
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          let params=new URLSearchParams();
-          params.append("ids",ids);
-          params.append("recommendStatus",status);
+            this.list[ids].recommendStatus=1;
           updateRecommendStatus(params).then(response=>{
             this.getList();
             this.$message({

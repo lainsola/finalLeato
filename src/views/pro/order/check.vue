@@ -59,7 +59,7 @@
         </el-table-column>
         <el-table-column label="厂家名称" align="center" width="120">
           <template slot-scope="scope">
-            <p>{{scope.row.brandName}}</p>
+            <p>{{scope.row.brandName2}}</p>
           </template>
         </el-table-column>
         <el-table-column label="联系电话" width="120" align="center">
@@ -85,7 +85,7 @@
             <p>
               <el-button
                 size="mini"
-                @click="handleShowProduct(scope.$index, scope.row)">查看
+                @click="handleViewLogistics()">查看
               </el-button>
               <el-button
               size="mini"
@@ -112,7 +112,7 @@
         :total="total">
       </el-pagination>
     </div>
-    
+    <logistics-dialog v-model="logisticsDialogVisible"></logistics-dialog>
   </div>
 </template>
 <script>
@@ -121,11 +121,11 @@
     updateDeleteStatus,
     updateNewStatus,
   } from '@/api/product'
+  import LogisticsDialog from '@/views/pro/order/components/detail';
   import {fetchList as fetchSkuStockList,update as updateSkuStockList} from '@/api/skuStock'
   import {fetchList as fetchProductAttrList} from '@/api/productAttr'
   import {fetchList as fetchBrandList} from '@/api/brand'
   import {fetchListWithChildren} from '@/api/productCate'
-
   const defaultListQuery = {
     keyword: null,
     pageNum: 1,
@@ -135,9 +135,17 @@
     productCategoryId: null,
   };
   export default {
+    components:{LogisticsDialog},
     name: "productList",
     data() {
       return {
+        closeOrder:{
+          dialogVisible:false,
+          content:null,
+          orderIds:[]
+        },
+        brandOptions: [],
+        logisticsDialogVisible:false,
         editSkuInfo:{
           dialogVisible:false,
           productId:null,
@@ -148,16 +156,15 @@
           keyword:null,
           mudidi:[],
           status: 1
-          
+
         },
         listQuery: Object.assign({}, defaultListQuery),
         list: null,
         total: null,
         listLoading: true,
-      
+
         multipleSelection: [],
         productCateOptions: [],
-        brandOptions: [],
         verifyStatusOptions: [{
           value: 1,
           label: '审核通过'
@@ -219,11 +226,11 @@
           //for (let i = 0; i < brandList.length; i++) {
             //this.brandOptions.push({label: brandList[i].name, value: brandList[i].id});
          // }
-          this.list[0].brandName="华为";
-          this.list[1].brandName="雅诗兰黛";
-          this.list[2].brandName="巴黎欧莱雅";
-          this.list[3].brandName="香奈儿";
-          this.list[4].brandName="宝格丽";
+          this.list[0].brandName2="华为";
+          this.list[1].brandName2="雅诗兰黛";
+          this.list[2].brandName2="巴黎欧莱雅";
+          this.list[3].brandName2="香奈儿";
+          this.list[4].brandName2="宝格丽";
 
 
 
@@ -292,7 +299,7 @@
         });
       },
 
-      handleShowProduct(index,row){
+      handleViewLogistics(){
         this.logisticsDialogVisible=true;
       },
     }

@@ -21,6 +21,8 @@ import Layout from '../views/layout/Layout'
 export const constantRouterMap = [
   {path: '/login', component: () => import('@/views/login/index'), hidden: true},
   {path: '/404', component: () => import('@/views/404'), hidden: true},
+  {name:"AgencyLogin",path: '/AgencyLogin', component: () => import('@/views/oms/apply/index.vue'), hidden: true},
+  {name:"AdminLogin",path: '/AdminLogin', component: () => import('@/views/login/index.vue'), hidden: true},
   {
     path: '',
     component: Layout,
@@ -44,12 +46,7 @@ export const constantRouterMap = [
       component: () => import('@/views/pms/product/index'),
       meta: {title: '商品列表', icon: 'product-list'}
     },
-      {
-        path: 'addProduct',
-        name: 'addProduct',
-        component: () => import('@/views/pms/product/add'),
-        meta: {title: '添加商品', icon: 'product-add'}
-      },
+
       {
         path: 'updateProduct',
         name: 'updateProduct',
@@ -122,7 +119,7 @@ export const constantRouterMap = [
         path: 'brand',
         name: 'brand',
         component: () => import('@/views/pms/brand/index'),
-        meta: {title: '品牌管理', icon: 'product-brand'}
+        meta: {title: '店铺管理', icon: 'product-brand'}
       },
       {
         path: 'addBrand',
@@ -194,18 +191,18 @@ export const constantRouterMap = [
       }
     ]
   },
+
   {
     path: '/issue',
-    component: Layout,
     redirect: '/issue/order',
     name: 'issue',
-    meta: {title: '纠纷管理', icon: 'order'},
+    component: Layout,
     children: [
       {
+        component: () => import('@/views/issue/order/index'),
         path: 'order',
         name: 'order',
-        component: () => import('@/views/issue/order/index'),
-        meta: {title: '订单列表', icon: 'product-list'}
+        meta: {title: '纠纷管理', icon: 'order'},
       },
       {
         path: 'orderDetail',
@@ -213,12 +210,6 @@ export const constantRouterMap = [
         component: () => import('@/views/issue/order/orderDetail'),
         meta: {title: '订单详情'},
         hidden:true
-      },
-      {
-        path: 'orderSetting',
-        name: 'orderSetting',
-        component: () => import('@/views/issue/order/setting'),
-        meta: {title: '订单设置', icon: 'order-setting'}
       },
     ]
   },
@@ -272,7 +263,7 @@ export const constantRouterMap = [
         path: 'hot',
         name: 'homeHot',
         component: () => import('@/views/sms/hot/index'),
-        meta: {title: '人气推荐', icon: 'sms-hot'}
+        meta: {title: '商品推荐', icon: 'sms-hot'}
       },
       {
         path: 'subject',
