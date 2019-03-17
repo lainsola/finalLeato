@@ -23,7 +23,7 @@
           <el-form-item label="商品名称：">
             <el-input v-model="listQuery.productName" class="input-width" placeholder="商品名称"></el-input>
           </el-form-item>
-          <el-form-item label="推荐状态：">
+          <el-form-item label="审核状态：">
             <el-select v-model="listQuery.recommendStatus" placeholder="全部" clearable class="input-width">
               <el-option v-for="item in recommendOptions"
                          :key="item.value"
@@ -50,33 +50,39 @@
         <el-table-column label="编号" width="120" align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="商品名称" align="center">
+        <el-table-column label="商品图片" width="120" align="center">
+          <template slot-scope="scope"><img style="height: 100px;width:100px" :src="scope.row.pic"></template>
+        </el-table-column>
+        <el-table-column label="商品名称" align="center" width="480px">
           <template slot-scope="scope">{{scope.row.productName}}</template>
         </el-table-column>
-        <el-table-column label="商品图片" width="120" align="center">
-          <template slot-scope="scope"><img style="height: 80px;width:100px" :src="scope.row.pic"></template>
+        <el-table-column label="品牌名称" align="center" width="240px">
+          <template slot-scope="scope">{{scope.row.brandname}}</template>
+        </el-table-column><el-table-column label="销量" align="center" width="100px">
+          <template slot-scope="scope">{{scope.row.sale}}</template>
         </el-table-column>
-        <el-table-column label="是否推荐" width="200" align="center">
-          <template slot-scope="scope">
-            <el-switch
-              @change="handleRecommendStatusStatusChange(scope.$index, scope.row)"
-              :active-value="1"
-              :inactive-value="0"
-              v-model="scope.row.recommendStatus">
-            </el-switch>
-          </template>
-        </el-table-column>
-        <el-table-column label="排序" width="160" align="center">
+        <el-table-column label="排序"  align="center" width="100px">
           <template slot-scope="scope">{{scope.row.sort}}</template>
         </el-table-column>
-        <el-table-column label="状态" width="160" align="center">
+        <el-table-column label="状态" width="150" align="center">
           <template slot-scope="scope">{{scope.row.recommendStatus | formatRecommendStatus}}</template>
         </el-table-column>
-        <el-table-column label="操作" width="180" align="center">
+        <el-table-column label="操作" width="240" align="center">
           <template slot-scope="scope">
-            <el-button size="mini"
-                       type="text"
-                       @click="handleEditSort(scope.$index, scope.row)">设置排序
+            <el-button
+              size="mini"
+              type="text"
+              @click="handleEditSort(scope.$index, scope.row)"
+              v-show="scope.row.recommendStatus===0">设置排序</el-button>
+              <el-button
+              type="text"
+                size="mini" v-show="scope.row.recommendStatus===1"
+                @click="handleShowLog(scope.$index, scope.row)">审核
+              </el-button>
+            <el-button
+              size="mini"
+              type="text"
+              @click="handleShowProduct()">查看
             </el-button>
             <el-button size="mini"
                        type="text"
@@ -170,12 +176,13 @@
         <el-button type="primary" @click="handleUpdateSort" size="small">确 定</el-button>
       </span>
     </el-dialog>
+    <logistics-dialog v-model="logisticsDialogVisible"></logistics-dialog>
   </div>
 </template>
 <script>
   import {fetchList,updateRecommendStatus,deleteHotProduct,createHotProduct,updateHotProductSort} from '@/api/hotProduct';
   import {fetchList as fetchProductList} from '@/api/product';
-
+  import LogisticsDialog from '@/views/sms/hot/huhu/detail';
   const defaultListQuery = {
     pageNum: 1,
     pageSize: 5,
@@ -184,15 +191,16 @@
   };
   const defaultRecommendOptions = [
     {
-      label: '未推荐',
-      value: 0
+      label: '未通过',
+      value: 1
     },
     {
-      label: '推荐中',
-      value: 1
+      label: '已通过',
+      value: 0
     }
   ];
   export default {
+    components:{LogisticsDialog},
     name: 'hotProductList',
     data() {
       return {
@@ -217,6 +225,7 @@
           }
         ],
         operateType: null,
+        logisticsDialogVisible:false,
         selectDialogVisible:false,
         dialogData:{
           list: null,
@@ -237,10 +246,10 @@
     },
     filters:{
       formatRecommendStatus(status){
-        if(status===1){
-          return '推荐中';
+        if(status===0){
+          return '已通过';
         }else{
-          return '未推荐';
+          return '未通过';
         }
       }
     },
@@ -270,6 +279,9 @@
       handleDelete(index,row){
         this.deleteProduct(row.id);
       },
+      handleShowProduct(){
+ this.logisticsDialogVisible=true;
+      },
       handleBatchOperate(){
         if (this.multipleSelection < 1) {
           this.$message({
@@ -284,10 +296,10 @@
           ids.push(this.multipleSelection[i].id);
         }
         if (this.operateType === 0) {
-          //设为推荐
+          
           this.updateRecommendStatusStatus(ids,1);
         } else if (this.operateType === 1) {
-          //取消推荐
+          
           this.updateRecommendStatusStatus(ids,0);
         } else if(this.operateType===2){
           //删除
@@ -362,14 +374,12 @@
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          updateHotProductSort(this.sortDialogData).then(response=>{
+            
             this.sortDialogVisible=false;
-            this.getList();
             this.$message({
               type: 'success',
-              message: '删除成功!'
+              message: '修改成功!'
             });
-          });
         })
       },
       getList() {
@@ -384,28 +394,38 @@
           this.list[2].pic = require('./huhu/3.jpg');
           this.list[3].pic = require('./huhu/4.jpg');
           this.list[4].pic = require('./huhu/5.jpg');
+          this.list[0].brandname = '海澜之家';
+          this.list[1].brandname = '华为 ';
+          this.list[2].brandname = '小米';
+          this.list[3].brandname = '小米';
+          this.list[4].brandname = '苹果';
+          this.list[0].sale =94;
+          this.list[1].sale =26;
+          this.list[2].sale =25;
+          this.list[3].sale =264;
+          this.list[4].sale =18;
         });
         
       },
-      updateRecommendStatusStatus(ids,status){
-        this.$confirm('是否要修改推荐状态?', '提示', {
+      handleShowLog(index,row){
+        this.$confirm('是否要修改审核状态?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-            this.list[ids].recommendStatus=1;
-          updateRecommendStatus(params).then(response=>{
-            this.getList();
+            //this.getList();
             this.$message({
               type: 'success',
               message: '修改成功!'
-            });
+
           });
+          this.list[index].recommendStatus=0;
         }).catch(() => {
           this.$message({
             type: 'success',
             message: '已取消操作!'
           });
+          this.list[index].recommendStatus=1;
           this.getList();
         });
       },
@@ -415,14 +435,12 @@
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          let params=new URLSearchParams();
-          params.append("ids",ids);
-          deleteHotProduct(params).then(response=>{
-            this.getList();
+          this.list.splice(ids,1);
+          this.getList();
+            
             this.$message({
               type: 'success',
               message: '删除成功!'
-            });
           });
         })
       },

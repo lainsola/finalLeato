@@ -1,29 +1,25 @@
 <template> 
-  <el-dialog title="订单跟踪"
+  <el-dialog title="华为信息查询"
              :visible.sync="visible"
              :before-close="handleClose"
              width="40%">
-    <el-steps direction="vertical"
-              :active="6"
-              finish-status="success"
-              space="50px">
-      <el-step  v-for="item in logisticsList"
-                :key="item.name"
-                :title="item.name"
-                :description="item.time"></el-step>
-    </el-steps>
+<hr>
+    <img src="http://itsummit.sz.gov.cn/szjs/qyjs/201102/W020110219606005274847.jpg "  class="huhuhu">
+    <br><h2>联系人：郭平<br>
+    董事长：梁华<br>
+    联系电话：13945872574<br></h2>
+    <br>
+    厂家名称：华为<br>
+    厂家地址：中国广东省深圳市龙岗区坂田街道华为基地<br>
+    经营范围：IT、无线电，微电子，通讯，路由，交换等<br>
+    联系电话：400886888<br>
+    申请时间：2018-09-15 12:24:27<br>
+    介绍：华为是全球领先的ICT（信息与通信）基础设施和智能终端提供商，致力于把数字世界带入每个人、每个家庭、每个组织，构建万物互联的智能世界。我们在通信网络、IT、智能终端和云服务等领域为客户提供有竞争力、安全可信赖的产品、解决方案与服务，与生态伙伴开放合作，持续为客户创造价值，释放个人潜能，丰富家庭生活，激发组织创新。华为坚持围绕客户需求持续创新，加大基础研究投入，厚积薄发，推动世界进步。华为成立于1987年，是一家由员工持有全部股份的民营企业，目前有18万员工，业务遍及170多个国家和地区。<br
+    <hr>
+<img src="http://img3.imgtn.bdimg.com/it/u=3577098201,3625016662&fm=26&gp=0.jpg">
   </el-dialog>
 </template>
 <script>
-  const defaultLogisticsList=[
-    {name: '订单已提交，等待付款',time:'2017-04-01 12:00:00 '},
-    {name: '订单付款成功',time:'2017-04-01 12:00:00 '},
-    {name: '在北京市进行下级地点扫描，等待付款',time:'2017-04-01 12:00:00 '},
-    {name: '在分拨中心广东深圳公司进行卸车扫描，等待付款',time:'2017-04-01 12:00:00 '},
-    {name: '在广东深圳公司进行发出扫描',time:'2017-04-01 12:00:00 '},
-    {name: '到达目的地网点广东深圳公司，快件将很快进行派送',time:'2017-04-01 12:00:00 '},
-    {name: '订单已签收，期待再次为您服务',time:'2017-04-01 12:00:00 '}
-  ];
   export default {
     name:'logisticsDialog',
     props: {
@@ -54,6 +50,14 @@
     }
   }
 </script>
-<style></style>
+<style>
+.huhuhu{
+  float:left;
+   margin-left: 10%;
+   left: 50%;
+  width:30%;
+  height: 30%;
+ }
+</style>
 
 

@@ -1,29 +1,26 @@
 <template> 
-  <el-dialog title="订单跟踪"
+  <el-dialog title="丽人丽妆信息查询"
              :visible.sync="visible"
              :before-close="handleClose"
              width="40%">
-    <el-steps direction="vertical"
-              :active="6"
-              finish-status="success"
-              space="50px">
-      <el-step  v-for="item in logisticsList"
-                :key="item.name"
-                :title="item.name"
-                :description="item.time"></el-step>
-    </el-steps>
+    <hr>
+    <img src="http://imgs.ebrun.com/resources/2017_05/2017_05_12/201705123661494559541605.jpg "  class="huhuhu">
+    <br><h2>联系人：陈明雯<br>
+    董事长：陈明雯<br>
+    联系电话：13945872574<br></h2>
+    <br>
+    <br>
+    厂家名称：丽人丽妆<br>
+    厂家地址：上海市松江区乐都西路825弄89<br>
+    经营范围：香水、化妆品、日用品、机械设备、五金交电、计算机软硬件（除计算机信息系统安全专用产品）、电子产品、美容工具、服装鞋帽、玩具、针纺织品、母婴产品、文具用品、体育用品、工艺礼品、建筑装潢材料（除危险品）、化工原料.<br>
+    联系电话：400886888<br>
+    申请时间：2018-09-15 12:24:27<br>
+    介绍：丽人丽妆与佳丽宝、爱茉莉太平洋、汉高等国际十大化妆品集团授权合作，获得包括希思黎、奥伦纳素、雪花秀、兰芝、施华蔻等五十多个全球知名品牌在中国的正品授权，成为品牌坚实的合作伙伴。
+    <hr>
+    <img src="http://img.jdzj.com/UserDocument/2014b/llsxh184/Picture/201451013312.jpg" class="hahaha">
   </el-dialog>
 </template>
 <script>
-  const defaultLogisticsList=[
-    {name: '订单已提交，等待付款',time:'2017-04-01 12:00:00 '},
-    {name: '订单付款成功',time:'2017-04-01 12:00:00 '},
-    {name: '在北京市进行下级地点扫描，等待付款',time:'2017-04-01 12:00:00 '},
-    {name: '在分拨中心广东深圳公司进行卸车扫描，等待付款',time:'2017-04-01 12:00:00 '},
-    {name: '在广东深圳公司进行发出扫描',time:'2017-04-01 12:00:00 '},
-    {name: '到达目的地网点广东深圳公司，快件将很快进行派送',time:'2017-04-01 12:00:00 '},
-    {name: '订单已签收，期待再次为您服务',time:'2017-04-01 12:00:00 '}
-  ];
   export default {
     name:'logisticsDialog',
     props: {
@@ -54,6 +51,18 @@
     }
   }
 </script>
-<style></style>
+<style>
+  .huhuhu{
+    float:left;
+    margin-left: 10%;
+    left: 50%;
+    width:30%;
+    height: 30%;
+  }
+  .hahaha{
+    width: 500px;
+    height: 400px;
+  }
+</style>
 
 
