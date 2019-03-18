@@ -158,7 +158,7 @@
 
 
   .loginContainer {
-    background-image: url(https://static.zhihu.com/heifetz/assets/sign_bg.db29b0fb.png);
+    background-image: url(./1.jpg);
     background-repeat: no-repeat;
     background-color: #b8e5f8;
     background-size: cover;
@@ -190,5 +190,6 @@
     font-size: 12px;
     display: inline-block;
     padding-left:500px;
+    
   }
 </style>
