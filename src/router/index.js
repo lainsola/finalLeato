@@ -44,7 +44,7 @@ export const constantRouterMap = [
         component: () => import('@/views/issue/order/index'),
         path: 'order',
         name: 'order',
-        meta: {title: '纠纷管理', icon: 'form'},
+        meta: {title: '纠纷管理', icon: '纠纷管理'},
       },
       {
         path: 'orderDetail',
@@ -140,7 +140,7 @@ export const constantRouterMap = [
         path: 'brand',
         name: 'brand',
         component: () => import('@/views/pms/brand/index'),
-        meta: {title: '店铺管理', icon: 'product-brand'}
+        meta: {title: '店铺管理', icon: '店铺管理'}
       },
       {
         path: 'addBrand',
@@ -212,8 +212,6 @@ export const constantRouterMap = [
       }
     ]
   },
-
-
   {
     path:'/sms',
     component: Layout,
@@ -252,7 +250,7 @@ export const constantRouterMap = [
         path: 'brand',
         name: 'homeBrand',
         component: () => import('@/views/sms/brand/index'),
-        meta: {title: '品牌推荐', icon: 'product-brand'}
+        meta: {title: '品牌推荐', icon: '推荐'}
       },
       {
         path: 'new',
@@ -279,13 +277,13 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/pro/order',
     name: 'pro',
-    meta: {title: '用户', icon: 'user'},
+    meta: {title: '用户', icon: '用户'},
     children: [
       {
         path: 'order',
         name: 'order',
         component: () => import('@/views/pro/order/index'),
-        meta: {title: '经销商管理', icon: 'product-list'}
+        meta: {title: '经销商管理', icon: '经销商'}
       },
       {
         path: 'distributorDetail',
@@ -301,13 +299,13 @@ export const constantRouterMap = [
         path: 'buyer',
         name: 'buyer',
         component: () => import('@/views/pro/order/buyer'),
-        meta: {title: '厂商管理', icon: 'order-setting'}
+        meta: {title: '厂商管理', icon: '厂商'}
       },
       {
         path: 'check',
         name: 'check',
         component: () => import('@/views/pro/order/check'),
-        meta: {title: '厂商审核', icon: 'order-setting'}
+        meta: {title: '厂商审核', icon: '审核'}
       },
 
 
