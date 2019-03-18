@@ -6,7 +6,6 @@
                :rules="loginRules"
                ref="loginForm"
                label-position="left">
-
         <h2 class="login-title color-main">Letao</h2>
         <h2 class="login-msg color-main">登录letao，发现更多喜爱</h2>
         <el-form-item prop="username">
@@ -15,7 +14,6 @@
                     v-model="loginForm.username"
                     autoComplete="on"
                     placeholder="请输入用户名">
-
           </el-input>
         </el-form-item>
         <el-form-item prop="password" style="margin-bottom: 0">
@@ -25,7 +23,6 @@
                     v-model="loginForm.password"
                     autoComplete="on"
                     placeholder="请输入密码">
-
             <span slot="suffix" @click="showPwd">
             <svg-icon icon-class="eye" class="color-main"></svg-icon>
           </span>
@@ -33,27 +30,29 @@
         </el-form-item>
         <el-form-item >
           <el-row :gutter="20">
-            <el-col :span="16"><div style="color: #8590A6;"><a href="#">手机验证码登陆</a></div></el-col>
-            <el-col :span="8" ><div style="text-align:right;color: #8590A6;"><a href="#">忘记密码</a></div></el-col>
-          </el-row>
+
+              <el-col :span="16"><div style="color: #8590A6;"><a href="#">手机验证码登陆</a></div></el-col>
+              <el-col :span="8" ><div style="text-align:right;color: #8590A6;"><a href="#">忘记密码</a></div></el-col>
+          </el-row>      
         </el-form-item>
         <el-form-item style="margin-bottom: 30px">
           <el-button style="width: 100%" type="primary" :loading="loading" @click.native.prevent="handleLogin">
             登录
           </el-button>
         </el-form-item>
-        <el-form-item   style="margin-bottom:60px ;margin:0 auto;text-align:center;color: #8590A6;">
+
+        <el-form-item   style="margin-bottom:60px;margin:0 auto;text-align:center;color: #8590A6;">
           <el-button type="text"
-                     @click.native.prevent="codelogin">微信扫码登陆</el-button>
-
+            @click.native.prevent="codelogin">微信扫码登陆</el-button>
+          
         </el-form-item>
-
+       
         <el-form-item   style="margin-bottom:60px;margin:0 auto;text-align:center;color: #8590A6;">
           <a href="#">注册</a>
         </el-form-item>
+        
 
-
-
+        
       </el-form>
     </el-card>
     <img :src="login_center_bg" class="login-center-layout">
@@ -104,8 +103,7 @@
           this.pwdType = 'password'
         }
       },
-
-
+      
       codelogin() {
         this.$refs.loginForm.validate(valid => {
           if (valid) {
@@ -149,11 +147,37 @@
     right: 0;
     width: 360px;
     margin: 140px auto;
-
+   
   }
-
   .login-title {
     text-align: center;
+  }
+
+
+  .loginContainer {
+    background-image: url(https://static.zhihu.com/heifetz/assets/sign_bg.db29b0fb.png);
+    background-repeat: no-repeat;
+    background-color: #b8e5f8;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding-right: 15px;
+}
+
+  .login-title {
+    font-size:400%;
+    text-align: center;
+    margin:0;
+  }
+
+  .login-center-layout {
+   
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 45%;
   }
 
 

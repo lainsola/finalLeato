@@ -19,7 +19,7 @@
         </el-button>
       </div>
       <div style="margin-top: 15px">
-        <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
+        <el-form :inline="true" :model="listQuery" size="small" >
           <el-form-item label="商品名称：">
             <el-input v-model="listQuery.productName" class="input-width" placeholder="商品名称"></el-input>
           </el-form-item>
@@ -53,21 +53,21 @@
         <el-table-column label="商品图片" width="120" align="center">
           <template slot-scope="scope"><img style="height: 100px;width:100px" :src="scope.row.pic"></template>
         </el-table-column>
-        <el-table-column label="商品名称" align="center" width="480px">
+        <el-table-column label="商品名称" align="center">
           <template slot-scope="scope">{{scope.row.productName}}</template>
         </el-table-column>
-        <el-table-column label="品牌名称" align="center" width="240px">
+        <el-table-column label="品牌名称" align="center">
           <template slot-scope="scope">{{scope.row.brandname}}</template>
-        </el-table-column><el-table-column label="销量" align="center" width="100px">
+        </el-table-column><el-table-column label="销量" align="center">
           <template slot-scope="scope">{{scope.row.sale}}</template>
         </el-table-column>
-        <el-table-column label="排序"  align="center" width="100px">
+        <el-table-column label="排序"  align="center">
           <template slot-scope="scope">{{scope.row.sort}}</template>
         </el-table-column>
-        <el-table-column label="状态" width="150" align="center">
+        <el-table-column label="状态" align="center">
           <template slot-scope="scope">{{scope.row.recommendStatus | formatRecommendStatus}}</template>
         </el-table-column>
-        <el-table-column label="操作" width="240" align="center">
+        <el-table-column label="操作" align="center">
           <template slot-scope="scope">
             <el-button
               size="mini"
