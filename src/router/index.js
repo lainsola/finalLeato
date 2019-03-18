@@ -19,11 +19,10 @@ import Layout from '../views/layout/Layout'
   }
  **/
 export const constantRouterMap = [
-  {path: '/login', component: () => import('@/views/login/index'), hidden: true},
-  {path: '/codelogin', component: () => import('@/views/login/codelogin'), hidden: true},
+
   {path: '/404', component: () => import('@/views/404'), hidden: true},
-  {name:"AgencyLogin",path: '/AgencyLogin', component: () => import('@/views/oms/apply/index.vue'), hidden: true},
-  {name:"AdminLogin",path: '/AdminLogin', component: () => import('@/views/login/index.vue'), hidden: true},
+  {path: '/login', component: () => import('@/views/login/index'), hidden: true},
+ {path: '/codelogin', component: () => import('@/views/login/codelogin'), hidden: true},
   {
     path: '',
     component: Layout,
@@ -34,6 +33,27 @@ export const constantRouterMap = [
       component: () => import('@/views/home/index'),
       meta: {title: '首页', icon: 'home'}
     }]
+  },
+  {
+    path: '/issue',
+    redirect: '/issue/order',
+    name: 'issue',
+    component: Layout,
+    children: [
+      {
+        component: () => import('@/views/issue/order/index'),
+        path: 'order',
+        name: 'order',
+        meta: {title: '纠纷管理', icon: '纠纷管理'},
+      },
+      {
+        path: 'orderDetail',
+        name: 'orderDetail',
+        component: () => import('@/views/issue/order/orderDetail'),
+        meta: {title: '订单详情'},
+        hidden:true
+      },
+    ]
   },
   {
     path: '/pms',
@@ -190,28 +210,6 @@ export const constantRouterMap = [
         meta: {title: '退货原因详情'},
         hidden:true
       }
-    ]
-  },
-
-  {
-    path: '/issue',
-    redirect: '/issue/order',
-    name: 'issue',
-    component: Layout,
-    children: [
-      {
-        component: () => import('@/views/issue/order/index'),
-        path: 'order',
-        name: 'order',
-        meta: {title: '纠纷管理', icon: '纠纷管理'},
-      },
-      {
-        path: 'orderDetail',
-        name: 'orderDetail',
-        component: () => import('@/views/issue/order/orderDetail'),
-        meta: {title: '订单详情'},
-        hidden:true
-      },
     ]
   },
   {

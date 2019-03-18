@@ -1,17 +1,17 @@
 <template>
   <div class="loginContainer">
-     <el-card class="login-form-layout">
+    <el-card class="login-form-layout">
       <el-form autoComplete="on"
                :model="loginForm"
                :rules="loginRules"
                ref="loginForm"
                label-position="left">
-        
+
         <h2 class="login-title color-main">Letao</h2>
         <h2 class="login-msg color-main">登录Letao，发现更多喜爱</h2>
 
 
-        <el-form-item   style="margin-bottom:20px margin:0 auto;text-align:center;color: #8590A6;">
+        <el-form-item   style="margin-bottom:20px;margin:0 auto;text-align:center;color: #8590A6;">
           <div class="Qrcode-content">
             <div class="Qrcode-img">
               <img width="150" height="150" src="https://img-blog.csdnimg.cn/20190314212442768.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODc4OTY0MQ==,size_16,color_FFFFFF,t_70" alt="二维码">
@@ -20,13 +20,13 @@
             <p>打开微信在「我的」页面右上角打开扫一扫</p>
           </div>
         </el-form-item>
-      
-    
+
+
         <el-form-item   style=" margin:0 auto;margin-bottom:40px;text-align:center;color: #8590A6;">
           <a href="#">使用密码登陆</a>
         </el-form-item>
 
-        
+
       </el-form>
     </el-card>
     <img :src="login_center_bg" class="login-center-layout">
@@ -77,7 +77,7 @@
           this.pwdType = 'password'
         }
       },
-      
+
 
       codelogin() {
         this.$refs.loginForm.validate(valid => {
@@ -122,7 +122,7 @@
     right: 0;
     width: 360px;
     margin: 140px auto;
-   
+
   }
 
   .login-title {
@@ -139,7 +139,7 @@
     height: 100%;
     overflow: auto;
     padding-right: 15px;
-}
+  }
 
   .login-title {
     font-size:400%;
@@ -148,7 +148,7 @@
   }
 
   .login-center-layout {
-   
+
     width: auto;
     height: auto;
     max-width: 100%;
