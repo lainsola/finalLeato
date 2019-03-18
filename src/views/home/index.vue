@@ -205,70 +205,70 @@
         </div>
 
         
-       <div class="total-numa total-layout">
-            <el-row :gutter="10">
-                      
-                <el-col :span="6">
-                  <div class="total-frame">
-                    <ul>
-                      <li class="total-title">昨日|人均使用次数</li>
-                      <li class="total-time">2019-03-10</li>
-                      
-                      <li><span class="total-num-size">1.17</span>次</li>
-                      <li>
-                            <span class="color-danger" style="font-size: 14px">-0.85%</span>
-                            <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
-                      </li>
-                    </ul>
-                  </div>
-                </el-col>
+        <div class="total-numa total-layout">
+              <el-row :gutter="10">
+                        
+                  <el-col :span="6">
+                    <div class="total-frame">
+                      <ul>
+                        <li class="total-title">昨日|人均使用次数</li>
+                        <li class="total-time">2019-03-10</li>
+                        
+                        <li><span class="total-num-size">1.17</span>次</li>
+                        <li>
+                              <span class="color-danger" style="font-size: 14px">-0.85%</span>
+                              <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </el-col>
 
-                <el-col :span="6">
-                  <div class="total-frame">
-                    <ul>
-                      <li class="total-title">昨日|人均使用时长</li>
-                      <li class="total-time">2019-03-10</li>    
-                      <li><span class="total-num-size">5,943</span>秒</li>
-                      <li>
-                            <span class="color-success" style="font-size: 14px">+1.16%</span>
-                            <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
-                      </li>
-                    </ul>
-                  </div>
-                </el-col>
+                  <el-col :span="6">
+                    <div class="total-frame">
+                      <ul>
+                        <li class="total-title">昨日|人均使用时长</li>
+                        <li class="total-time">2019-03-10</li>    
+                        <li><span class="total-num-size">5,943</span>秒</li>
+                        <li>
+                              <span class="color-success" style="font-size: 14px">+1.16%</span>
+                              <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </el-col>
 
-                <el-col :span="6">
-                  <div class="total-frame">
-                    <ul>
-                      <li class="total-title">昨日|单次使用平均时长</li>
-                      <li class="total-time">2019-03-10</li>
+                  <el-col :span="6">
+                    <div class="total-frame">
+                      <ul>
+                        <li class="total-title">昨日|单次使用平均时长</li>
+                        <li class="total-time">2019-03-10</li>
+                        
+                        <li><span class="total-num-size">3,046</span>秒</li>
+                        <li>
+                              <span class="color-success" style="font-size: 14px">+1.34%</span>
+                              <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+                        </li>
+                      </ul>
+                    </div>                 
+                  </el-col>
+
+                  
+                  <el-col :span="6">
+                    <div class="total-frame">
+                      <ul>
+                        <li class="total-title"><a href="#">昨日|人均使用深度</a></li>
+                        <li class="total-time">2019-03-10</li>
                       
-                      <li><span class="total-num-size">3,046</span>秒</li>
-                      <li>
-                            <span class="color-success" style="font-size: 14px">+1.34%</span>
-                            <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
-                      </li>
-                    </ul>
-                  </div>                 
-                </el-col>
-
-                
-                <el-col :span="6">
-                  <div class="total-frame">
-                    <ul>
-                      <li class="total-title"><a href="#">昨日|人均使用深度</a></li>
-                      <li class="total-time">2019-03-10</li>
-                     
-                      <li><span class="total-num-size">17.53</span></li>
-                      <li>
-                            <span class="color-success" style="font-size: 14px">+1.12%</span>
-                            <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
-                      </li>
-                    </ul>
-                  </div>                 
-                </el-col>
-             
-            </el-row>
+                        <li><span class="total-num-size">17.53</span></li>
+                        <li>
+                              <span class="color-success" style="font-size: 14px">+1.12%</span>
+                              <span style="color: #C0C4CC;font-size: 14px">同比昨日</span>
+                        </li>
+                      </ul>
+                    </div>                 
+                  </el-col>
+              
+              </el-row>
         </div>
 
 
@@ -338,7 +338,7 @@
                   </div>
 
                   <div class="total-frame echarts-table">                  
-                    <ve-funnel :data="chartData"></ve-funnel>
+                    <ve-funnel :data="chartData" :extend="chartExtend"></ve-funnel>
                   </div>
                 </el-col>
 
@@ -347,7 +347,8 @@
               </el-row>
         </div>
 
-   </div>
+      </div>
+      
 </template>
 
 <script>
@@ -358,10 +359,21 @@
     name: 'home',
     data() {
       return {
+        chartExtend:{
+          legend: {
+          textStyle: {
+            fontSize: 20
+        }
+      }
+
+        },
+        
 
 
         chartData: {
-          columns: ['状态', '数值'],
+          
+          
+          columns: ['状态','数值'],
           rows: [
             { '状态': '男装女装', '数值': 900 },
             { '状态': '数码手机', '数值': 600 },
