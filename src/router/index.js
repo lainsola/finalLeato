@@ -34,6 +34,27 @@ export const constantRouterMap = [
     }]
   },
   {
+    path: '/issue',
+    redirect: '/issue/order',
+    name: 'issue',
+    component: Layout,
+    children: [
+      {
+        component: () => import('@/views/issue/order/index'),
+        path: 'order',
+        name: 'order',
+        meta: {title: '纠纷管理', icon: 'form'},
+      },
+      {
+        path: 'orderDetail',
+        name: 'orderDetail',
+        component: () => import('@/views/issue/order/orderDetail'),
+        meta: {title: '订单详情'},
+        hidden:true
+      },
+    ]
+  },
+  {
     path: '/pms',
     component: Layout,
     redirect: '/pms/product',
@@ -191,27 +212,7 @@ export const constantRouterMap = [
     ]
   },
 
-  {
-    path: '/issue',
-    redirect: '/issue/order',
-    name: 'issue',
-    component: Layout,
-    children: [
-      {
-        component: () => import('@/views/issue/order/index'),
-        path: 'order',
-        name: 'order',
-        meta: {title: '纠纷管理', icon: 'order'},
-      },
-      {
-        path: 'orderDetail',
-        name: 'orderDetail',
-        component: () => import('@/views/issue/order/orderDetail'),
-        meta: {title: '订单详情'},
-        hidden:true
-      },
-    ]
-  },
+
   {
     path:'/sms',
     component: Layout,
@@ -277,7 +278,7 @@ export const constantRouterMap = [
     component: Layout,
     redirect: '/pro/order',
     name: 'pro',
-    meta: {title: '用户', icon: 'order'},
+    meta: {title: '用户', icon: 'user'},
     children: [
       {
         path: 'order',
