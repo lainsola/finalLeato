@@ -1,56 +1,30 @@
 <template>
   <div class="loginContainer">
-    <el-card class="login-form-layout">
+     <el-card class="login-form-layout">
       <el-form autoComplete="on"
                :model="loginForm"
                :rules="loginRules"
                ref="loginForm"
                label-position="left">
-        <h2 class="login-title color-main">Letao</h2>
-        <h2 class="login-msg color-main">登录letao，发现更多喜爱</h2>
-        <el-form-item prop="username">
-          <el-input name="username"
-                    type="text"
-                    v-model="loginForm.username"
-                    autoComplete="on"
-                    placeholder="请输入用户名">
-          </el-input>
-        </el-form-item>
-        <el-form-item prop="password" style="margin-bottom: 0">
-          <el-input name="password"
-                    :type="pwdType"
-                    @keyup.enter.native="handleLogin"
-                    v-model="loginForm.password"
-                    autoComplete="on"
-                    placeholder="请输入密码">
-            <span slot="suffix" @click="showPwd">
-            <svg-icon icon-class="eye" class="color-main"></svg-icon>
-          </span>
-          </el-input>
-        </el-form-item>
-        <el-form-item >
-          <el-row :gutter="20">
-
-              <el-col :span="16"><div style="color: #8590A6;"><a href="#">手机验证码登陆</a></div></el-col>
-              <el-col :span="8" ><div style="text-align:right;color: #8590A6;"><a href="#">忘记密码</a></div></el-col>
-          </el-row>      
-        </el-form-item>
-        <el-form-item style="margin-bottom: 30px">
-          <el-button style="width: 100%" type="primary" :loading="loading" @click.native.prevent="handleLogin">
-            登录
-          </el-button>
-        </el-form-item>
-
-        <el-form-item   style="margin-bottom:60px margin:0 auto;text-align:center;color: #8590A6;">
-          <el-button type="text"
-            @click.native.prevent="codelogin">微信扫码登陆</el-button>
-          
-        </el-form-item>
-       
-        <el-form-item   style="margin-bottom:60px margin:0 auto;text-align:center;color: #8590A6;">
-          <a href="#">注册</a>
-        </el-form-item>
         
+        <h2 class="login-title color-main">Letao</h2>
+        <h2 class="login-msg color-main">登录Letao，发现更多喜爱</h2>
+
+
+        <el-form-item   style="margin-bottom:20px margin:0 auto;text-align:center;color: #8590A6;">
+          <div class="Qrcode-content">
+            <div class="Qrcode-img">
+              <img width="150" height="150" src="https://img-blog.csdnimg.cn/20190314212442768.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl8zODc4OTY0MQ==,size_16,color_FFFFFF,t_70" alt="二维码">
+
+            </div>
+            <p>打开微信在「我的」页面右上角打开扫一扫</p>
+          </div>
+        </el-form-item>
+      
+    
+        <el-form-item   style=" margin:0 auto;margin-bottom:40px;text-align:center;color: #8590A6;">
+          <a href="#">使用密码登陆</a>
+        </el-form-item>
 
         
       </el-form>
@@ -104,6 +78,7 @@
         }
       },
       
+
       codelogin() {
         this.$refs.loginForm.validate(valid => {
           if (valid) {
@@ -149,6 +124,7 @@
     margin: 140px auto;
    
   }
+
   .login-title {
     text-align: center;
   }
@@ -179,40 +155,12 @@
     max-height: 100%;
     margin-top: 45%;
   }
-
-
-  .loginContainer {
-    background-image: url(https://static.zhihu.com/heifetz/assets/sign_bg.db29b0fb.png);
-    background-repeat: no-repeat;
-    background-color: #b8e5f8;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    padding-right: 15px;
-  }
-
-  .login-title {
-    font-size:400%;
-    text-align: center;
-    margin:0;
-  }
-
-  .login-center-layout {
-
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-    margin-top: 45%;
-  }
   footer{
-
     color: white;
     position: absolute;
     bottom: 25px;
     font-size: 12px;
     display: inline-block;
-    padding-left:500px;
+    padding:0 auto;
   }
 </style>
