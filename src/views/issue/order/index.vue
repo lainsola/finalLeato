@@ -374,19 +374,14 @@
           });
           return;
         }
-        let params = new URLSearchParams();
-        params.append('ids', this.closeOrder.orderIds);
-        params.append('note', this.closeOrder.content);
-        closeOrder(params).then(response=>{
-          this.closeOrder.orderIds=[];
+          this.list[0].sourceType=0;
           this.closeOrder.dialogVisible=false;
-          this.getList();
           this.$message({
             message: '修改成功',
             type: 'success',
             duration: 1000
           });
-        });
+
       },
       getList() {
         this.listLoading = true;
