@@ -129,7 +129,10 @@
     text-align: center;
   }
 
+  .login-msg{
+    text-align:center;
 
+  }
   .loginContainer {
     background-image: url(./1.jpg);
     background-repeat: no-repeat;
