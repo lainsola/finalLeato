@@ -412,7 +412,7 @@
           this.listLoading = false;
           this.list = response.data.list;
           this.total = response.data.total;
-          this.list[0].memberUsername="ebey";
+          this.list[0].memberUsername="潮流前线";
           this.list[1].memberUsername="天猫自营";
           this.list[2].memberUsername="小红书";
           this.list[3].memberUsername="网易考拉";

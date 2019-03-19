@@ -19,12 +19,12 @@
         </el-button>
       </div>
       <div style="margin-top: 15px">
-        <el-form :inline="true" :model="listQuery" size="small" label-width="140px">
+        <el-form :inline="true" :model="listQuery" size="small">
           <el-form-item label="输入搜索：">
-            <el-input style="width: 203px" v-model="listQuery.keyword" placeholder="厂家名称"></el-input>
+            <el-input v-model="listQuery.keyword" placeholder="厂家名称"></el-input>
           </el-form-item>
           <el-form-item label="联系电话：">
-            <el-input style="width: 203px" v-model="listQuery.productSn" placeholder="联系电话："></el-input>
+            <el-input v-model="listQuery.productSn" placeholder="联系电话："></el-input>
           </el-form-item>
           <el-form-item label="审核状态：">
             <el-select v-model="listQuery.verifyStatus" placeholder="全部" clearable>
@@ -50,37 +50,37 @@
                 @selection-change="handleSelectionChange"
                 v-loading="listLoading"
                 border>
-        <el-table-column type="selection" width="60" align="center"></el-table-column>
-        <el-table-column label="编号" width="100" align="center">
+        <el-table-column type="selection" align="center"></el-table-column>
+        <el-table-column label="编号" align="center">
           <template slot-scope="scope">{{scope.row.id}}</template>
         </el-table-column>
-        <el-table-column label="厂商商标" width="120" align="center">
+        <el-table-column label="厂商商标" align="center">
           <template slot-scope="scope"><img style="height: 80px" :src="scope.row.pic"></template>
         </el-table-column>
-        <el-table-column label="厂家名称" align="center" width="120">
+        <el-table-column label="厂家名称" align="center">
           <template slot-scope="scope">
             <p>{{scope.row.brandName2}}</p>
           </template>
         </el-table-column>
-        <el-table-column label="联系电话" width="120" align="center">
+        <el-table-column label="联系电话" align="center">
           <template slot-scope="scope">
             <p>{{scope.row.productSn}}</p>
           </template>
         </el-table-column>
-        <el-table-column label="所在地" width="120" align="center">
+        <el-table-column label="所在地" align="center">
           <template slot-scope="scope">
             <p>{{scope.row.mudidi}}</p>
           </template>
         </el-table-column>
-        <el-table-column label="注册时间" width="180" align="center">
+        <el-table-column label="注册时间" align="center">
           <template slot-scope="scope">2018-09-15 12:24:27</template>
         </el-table-column>
-        <el-table-column label="审核状态" width="100" align="center">
+        <el-table-column label="审核状态" align="center">
           <template slot-scope="scope">
             <p>{{scope.row.verifyStatus | verifyStatusFilter}}</p>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="160" align="center">
+        <el-table-column label="操作" align="center">
           <template slot-scope="scope">
             <p>
               <el-button
